@@ -1,0 +1,296 @@
+### 前言
+本文主要涵盖了以下两部分的内容：
+
+ - 介绍了C语言中`const`的详细用法.
+ 
+ - 介绍了C/C++语言下声明语句的规则.
+
+需注意：在`const`的用法上，C与C++存在区别，本文中只关注C语言中的实现。关于二者的区别，请查阅博客：[C/C++语言中const的用法](http://www.cnblogs.com/xkfz007/archive/2012/02/27/2370478.html).
+
+----------
+### `const`
+
+在ANSI C标准下，我们可以通过`const`关键字来声明常量，如：
+```c
+int const a;
+const int a;
+```
+上面两条语句都把a声明为一个整数，且它的值不能被修改，两种声明方式等价。
+
+#### 如何让常量拥有一个值？
+
+如上所说，既然a的值无法被修改，所以我们无法把任何东西赋值给它。如此一来，如何才能让它在一开始拥有一个值呢？
+
+方法一：在声明时，就对常量就行初始化。
+```c
+//正确的赋值方法：
+int const a = 10;
+
+//错误使用常量：
+int const a;
+a = 10;
+```
+
+方法二：在函数中声明为const的形参，在函数被调用时会得到实参的值。
+```c
+/*
+ * 这是标准库中的一个函数，用于按字节方式复制字符串（内存）。 
+ * 它的第一个参数，是将字符串复制到哪里去（dest)，是目的地，这段内存区域必
+ * 须是可写。 
+ * 它的第二个参数，是要将什么样的字符串复制出去，我们对这段内存区域只做读
+ * 取，不写。
+ */
+NAME
+memmove -- copy byte string
+
+LIBRARY
+Standard C Library (libc, -lc)
+
+SYNOPSIS
+#include
+
+void *memmove(void *dst, const void *src, size_t len);
+
+...
+
+//正确的使用方法：
+const char* s=hello;
+char buf[100];
+memmove(buf,s,6);
+
+//memmove(s,buf,6);		由于buf不是常量，故编译器报错
+
+```
+
+#### 指向常量的指针 与 常量指针
+
+> 当涉及到指针变量时，情况就变得更加有趣，因为有两样东西都有可能成为常量——指针变量和它所指向的实体。
+
+我们先来看“**指向常量的指针**”。
+```c
+int const *a;
+//int *const a;
+```
+在第一行，我们把a声明为指向const int（即整型常量）的指针。也就是说：a指向的这个变量，是被const修饰的，因此不能通过间接访问操作`*`来更改它的值。但是a本身的值，即a所指向的地址，是可以改变的。
+
+```c
+	/* 指向常量的指针 */
+	
+    int const a = 1;
+    int b = 2;
+    
+    int const *pa = &a;
+    printf("The pointer pa points at the const int varible %d.\n", *pa);
+    
+    //*pa = b;      不能通过间接访问操作“*”来更改pa所指向变量的值
+    
+    pa = &b;        //但pa本身的值可以改变
+    printf("The pointer pa points at the int varible %d.\n", *pa);
+
+    /*
+     [运行结果]
+     The pointer pa points at the const int varible 1.
+     The pointer pa points at the int varible 2.
+     */
+```
+
+在上面的例子中，指针`pa`开始时指向一个整型常量（即：pa的值开始是一个整型常量的内存地址），后来又指向一个整型变量（即：pa的值后来变为一个整型变量的内存地址）。这个整型常量`a`的值肯定是无法修改的，但pa的值却可以修改。
+
+接下来再看“**常量指针**”。
+```c
+//int const *a;
+int *const a;
+```
+在第二行，我们把a声明为指向int（即整型变量）的常量指针。也就是说：a指向的这个变量，只是一个普通的整型变量，其值可以改变。但a本身的值，即a所指向的地址，是不可改变的。
+```c
+    /* 常量指针 */
+    
+    int a = 1;
+    int const b = 2;
+    
+    int *const pa = &a;
+    printf("The const pointer pa points at the int varible %d.\n", *pa);
+    
+    //pa = &b;      //pa本身的值不可更改，即：它“只能指向”变量a
+    
+    *pa = b;        //虽然pa“只能指向”变量a，但变量a是可以更改的
+    printf("The const pointer pa points at the changed int varible %d.\n", *pa);
+    
+    /*
+     [运行结果]
+     The const pointer pa points at the int varible 1.
+     The const pointer pa points at the changed int varible 2.
+     */
+```
+#### `const`与全局变量
+详见博客：[const在C语言中的用法详解](http://blog.csdn.net/itxiebo/article/details/51206641) 中的 “3. 全局变量” 讲述。
+
+#### `const` 与 `#define`
+
+> `#define`指令是另一种创建名字常量的机制。例如，下面这两个声明都为50这个值创建了名字常量：
+```c
+#define MAX_ELEMENTS 50
+int const max_elements 50;
+```
+> 在这种情况下，使用`#define`比使用`const`变量更好。因为只要允许使用字面值常量的地方，都可以使用前者，比如声明数组的长度。`const`变量只能用于允许使用变量的地方。
+
+在《C和指针》如上的表述中，我们可以知道，如果是简单的声明字面值常量，使用`#define`确实会降低我们理解“常量”的难度，这也减少了出错的机会。
+
+但理解`const`仍是十分必要的，因为正如上文中介绍的那样，一旦牵扯到指针，即对于“指向常量的指针”和“常量指针”而言，`#define`是无法完成我们的程序需求的。
+
+----------
+### 声明
+
+至此，我们已经能够理解`const`的各种用法了。但是，我们仍应强调另一个主要的问题，就是C/C++语言中，对含有关键词`const`语句的声明。
+
+细心的读者也许注意到了本文开始所提到的，有关`const`变量的声明方法。
+```c
+//这是两种等价的常量声明方式：
+int const a;
+const int a;
+```
+
+我们先来看一个可能引起理解障碍的声明问题，也就是著名的文章[《const T vs. T const ——Dan Saks》](http://blog.csdn.net/bianbian17556231/article/details/5398039)所讨论的问题：
+
+```c
+typedef void *VP;
+const VP vectorTable[] = {..<data>..};   
+```
+
+我们首先通过`typedef`机制，把`VP`类型指定为`void *`，即指向无类型变量的**指针**。那么，按照我们一开始的理解，`const VP vectorTable[]`等价于`VP const vectorTable[]`。
+
+但这就产生了我们理解上的二义性：编译器在处理`typedef`机制时，对于`const VP vectorTable[]`，我们貌似应该得到`const void *vectorTable[]`，即**指向无类型常量的指针序列**，而对于`VP const vectorTable[]`，我们又应该得到`void *const vectorTable[]`，即一个**常量指针序列**。
+
+实际上，编译器是按照`void *const vectorTable[]`来处理这个声明语句的。那么，这就自然引出了我们所要讨论的问题，即：C/C++语言中的声明规则。
+
+#### 声明符（declarators）
+
+首先我们需要明确一个观点：
+> C和C++中的每个声明都有两个主要部分：零个或者更多**声明说明符**，和一个以上用逗号隔开的**声明符**。
+
+例如:
+```c
+static unsigned long int *x[N];
+ 
+//static unsigned long int ：声明说明符
+//*x[N]                    ：声明符
+```
+
+ 一个声明符就是被声明的名称，可能伴有操作符，比如 \*, [], ()等。正如你所知的，声明中的符号*表示“指针”，[]表示 “序列”。
+
+因此， *x[N]表明x 是一个“有N个指针元素的序列，分别指向某某”，某某就是声明中指定的类型。
+
+例如： `static unsigned long int *x[N];` 把x声明为“指向unsigned long int的N个指针元素的序列”的一个对象。（后面会解释，关键词static对这种类型没有意义。）
+
+为什么*x[N]是一个指针的序列，而不是指向一个序列的指针？
+
+因为一个声明符遵循以下规则：
+> 在一个表达式中，声明符中的操作符根据他们的优先级来分组。
+ 
+例如，在C或C++中，如果检查最近优先级图表，你会发现[]的优先级比\*更高。因此声明符*x[N]表明x是一个优先于指针的序列。圆括号在声明符中有两个作用：第一，作为函数调用的操作符，第二，用来分组。作为函数调用的操作符，()和[]的优先级相同。用作分组时，()的优先级是最高的。
+
+又如：例如，`*f(int)`表示f是一个函数，返回一个指针。相反，`(*f)(int)`表示f是一个指向函数的指针。
+ 
+> 一个声明符可能包含不止一个标识符。
+
+声明符`*x[N]` 包含两个标识符，x和N。只有其中一个标识符是被声明的，而且被称为是声明符ID，其余的必须在这之前就被声明过。举例，`*x[N] `中的声明符ID是x。
+ 
+> 一个声明符可以不包含任何操作符。
+
+如：`int n;`这个声明符只有标识符n，没有任何操作符。
+
+#### 声明说明符（declaration specifiers）
+
+而对于声明说明符来说，它可以是类型说明符（如int、unsigned），或者类型名称的标识符（如typeof定义的标识符），也可以是存储类说明符（如extern或static），在C++中，还可以是函数说明符（如inline或virtual）。
+ 
+ 如`static unsigned long int *x[N];`语句，其包括4个声明说明符：一个存储类说明符`static`，三个类型说明符`unsigned`、`long`与`int`，又包括一个声明符`*x[N]`。大多数人把存储类说明符（如static）作为第一个（最左边的）声明说明符，但是它只是一个惯例，并非是语言要求。
+ 
+C/C++语言中，声明说明符遵守如下几条规则：
+
+> 类型说明符表明声明符ID的类型，其他说明符提供直接适用于这个声明符ID的一些类型无关的信息。
+
+举例：`static unsigned long int *x[N];` 声明x的类型是“指向unsigned long int的N个指针元素的序列”。关键词static表明x有静态分配的存储空间。
+
+> 声明说明符在一个声明中出现的顺序并不重要。
+
+如：`const VP vectorTable[]`等同于`VP const vectorTable[]`，`const void *vectorTable[]`等同于`void const *vectorTable[]`。
+
+> 能出现在**声明符**中的**声明说明符**只有`const`和`volatie`。
+
+例如，`void *const vectorTable[]`语句中，`const`出现在声明符中。因此，在这种情况，就不能重排关键词的顺序，`*const void vectorTable[]`就是错误的，因为只有声明说明符之间可以互换位置，而声明符与声明说明符不能互换。
+
+#### 声明风格
+在明确了C/C++语言的声明规则后，我们将介绍两种非常重要的声明风格，它可以提高我们对一个声明语句的理解速度，也大大降低了程序出错的风险。
+
+> 使用`int *p;`而不是`int* p;`或`int * p;`
+
+正如我们在上文提到的，`*p`是声明符，其中符号`*`是一个间接操作符，而`int`是声明说明符。因此，使用将声明符写在一起，是一种更优的代码风格。
+
+> 在多个声明说明符中，`const`尽量靠右写。
+
+在上文中我们提到，虽然`const VP vectorTable[]`等价于`VP const vectorTable[]`，但是编译器在实际处理中，会按照`VP const vectorTable[]`，即`void *const vectorTable[]`来处理。
+
+我们试着把`const`都尽量靠右写，再“从右往左”来看指针的声明，如：
+
+`T const *p;`
+
+即：把p声明为“指向const T 的指针”，非常准确，同样：
+ 
+`T *const p;`
+
+即：把p声明为“指向T的const指针”，也能正确的理解。
+
+----------
+### 练习
+最后，我们将通过两个简单的练习，来巩固上面所提到的知识。
+
+#### 例1
+试理解以下语句：
+```c
+const int a;
+int const a;
+const int * a;
+int * const a;
+int const * a const;
+```
+
+[参考答案]
+
+（1）`const int a;`等价于`int const a`，都是一个整型常量的声明方式。
+
+（2）`const int * a;`表示一个指向整型常量的指针，`const int *a`是一种更好的声明风格。
+
+（3）`int * const a;`表示一个指向整型变量的常量指针，`int *const a`是一种更好的声明风格。
+
+（4）不存在`int const * a const;`这样的语句，我们可以通过`const int *const a;`来声明一个指向整型常量的常量指针，`a`与`*a`均是不可更改的左值。
+
+#### 例2
+
+试理解`execv`函数的声明：
+```c
+int execv(const char *path, char *const argv[]);
+```
+
+[参考答案]
+
+函数包括两个参数，第一个参数是指向字符型常量的指针，第二个参数是指向字符型变量的常量指针序列。
+
+我们着重来看`char *const argv[]`。首先，由于声明符`[]`的优先级更高，所以它的主语应该是“序列”，那么这是一个怎样的序列呢？由声明符`*const argv`我们可以知道，这是**常量指针**序列。再由声明说明符`char`我们可以得知，这个序列中的每一个常量指针，都指向一个字符型变量。
+
+再来看下面这两个语句:
+```c
+argv[0] = NULL;		//非法
+argv[0][0] = 'a';	//合法
+```
+我们声明的是**常量指针**序列，因此这个序列中的每一个指针都为常量，不可修改。故第一行尝试修改第一个指针的值，是非法操作。而第二行的操作中，我们修改的是第一个指针所指向的字符变量的值，所以这是合法的。
+
+----------
+### 参考资料
+
+[1] 《C和指针》. [美] Kenneth A.reek 著. 
+
+[2] 博客：[const T vs. T const ——Dan Saks](http://blog.csdn.net/bianbian17556231/article/details/5398039).
+
+[3] 博客：[const在C语言中的用法详解](http://blog.csdn.net/itxiebo/article/details/51206641).
+
+[4] 博客：[C/C++语言中const的用法](http://www.cnblogs.com/xkfz007/archive/2012/02/27/2370478.html).
