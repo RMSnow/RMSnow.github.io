@@ -86,12 +86,12 @@ service-worker: true
 
 # Friends
 friends: [
-    {
+    # {
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "雪遥",
-        href: "http://blog.csdn.net/tommmrunner"
+        {title: "雪遥",
+        href: "http://blog.csdn.net/tommmrunner"}
     # },{
     #     title: "前端外刊评论",
     #     href: "http://qianduan.guru/"
