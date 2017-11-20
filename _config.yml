@@ -16,7 +16,7 @@ weibo_username:     5831484448
 zhihu_username:     zhang-xue-yao-84
 github_username:    RMSnow
 # twitter_username:   huxpro
-# facebook_username:  huxpro
+facebook_username:  Snow
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -66,9 +66,9 @@ netease_comment: false
 
 
 # Sidebar settings
-sidebar: false                           # whether or not using Sidebar.
+sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "雪山飞遥"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/img-me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
