@@ -1,5 +1,5 @@
 # Site settings
-title: RMSnow's Blog
+title: RMSnow
 SEOTitle: 雪遥的博客 | RMSnow's Blog
 header-img: img/home-bg.jpg
 email: xueyao_98@gmail.com
@@ -11,12 +11,12 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 
 # SNS settings
-RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-twitter_username:   huxpro
-#facebook_username:  huxpro
+RSS: true
+weibo_username:     5831484448
+zhihu_username:     zhang-xue-yao-84
+github_username:    RMSnow
+# twitter_username:   huxpro
+# facebook_username:  huxpro
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -33,7 +33,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 
 
@@ -48,7 +48,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+# disqus_username: hux
 
 # Netease setttings
 netease_comment: false
@@ -60,8 +60,8 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+# ga_domain: huangxuan.me
 
 
 
