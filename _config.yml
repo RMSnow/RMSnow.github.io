@@ -90,8 +90,13 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        {title: "雪遥",
-        href: "http://blog.csdn.net/tommmrunner"}
+        {
+            title: "RuuuuuunNER",
+            href: "http://blog.csdn.net/tommmrunner"},
+        {
+            title: "ThdLee",
+            href: "thdlee.com"
+        }
     # },{
     #     title: "前端外刊评论",
     #     href: "http://qianduan.guru/"
