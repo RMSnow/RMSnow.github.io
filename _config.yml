@@ -1,7 +1,7 @@
 # Site settings
-title: RMSnow
-SEOTitle: 雪遥的博客 | RMSnow's Blog
-header-img: img/home-bg.jpg
+title: RMSnow Blog
+SEOTitle: 雪遥的博客 | RMSnow Blog
+header-img: img/home-bg-o.jpg
 email: xueyao_98@gmail.com
 description: "Snow is over."
 keyword: "Snow"
@@ -11,12 +11,12 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 
 # SNS settings
-RSS: true
+RSS: false
 weibo_username:     5831484448
 zhihu_username:     zhang-xue-yao-84
 github_username:    RMSnow
 # twitter_username:   huxpro
-facebook_username:  Snow
+# facebook_username:  Snow
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -67,8 +67,8 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "雪山飞遥"
-sidebar-avatar: /img/img-me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Snow is over."
+sidebar-avatar: /img/img-me.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
