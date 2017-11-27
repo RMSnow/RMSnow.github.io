@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "实现一个简单的自定义显式分配器"
+title:      "实现一个简单的C语言动态内存显式分配器"
 subtitle:   "A Demo Allocator"
 date:       2017-11-27 15:32:00
 author:     "Snow"
