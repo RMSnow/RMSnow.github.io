@@ -54,7 +54,7 @@ kramdown:
 # disqus_username: hux
 
 # Netease setttings
-netease_comment: false
+netease_comment: true
 
 
 
