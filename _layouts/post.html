@@ -113,7 +113,7 @@ layout: default
                             // gitment.render('container')
 
                             const gitment = new Gitment({
-                                id: 'Your page ID', // optional
+                                id: window.location.pathname, // optional
                                 owner: 'RMSnow',
                                 repo: 'RMSnow.github.io',
                                 oauth: {
@@ -122,6 +122,8 @@ layout: default
                                 },
                                 // ...
                                 // For more available options, check out the documentation below
+                                //perpage
+                                perpage: '10'
                             })
 
                             gitment.render('gitments')
