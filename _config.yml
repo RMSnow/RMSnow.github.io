@@ -51,7 +51,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: rmsnow
+# disqus_username: rmsnow
 
 # Netease setttings
 netease_comment: false
