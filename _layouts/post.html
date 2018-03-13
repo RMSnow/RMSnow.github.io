@@ -95,6 +95,42 @@ layout: default
                 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
                 <!-- 网易云跟帖 评论框 end -->
                 {% endif %}
+
+                <!-- Gitment -->
+                <div id="Gitment">
+                    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                    <script>
+                            // var gitment = new Gitment({
+                            //   id: '页面 ID', // 可选。默认为 location.href
+                            //   owner: '你的 GitHub ID',
+                            //   repo: '存储评论的 repo',
+                            //   oauth: {
+                            //     client_id: '你的 client ID',
+                            //     client_secret: '你的 client secret',
+                            //   },
+                            // })
+                            // gitment.render('container')
+
+                            const gitment = new Gitment({
+                                id: 'Your page ID', // optional
+                                owner: 'RMSnow',
+                                repo: 'https://github.com/RMSnow/Blog-s-Comments',
+                                oauth: {
+                                    client_id: '75bbde0c0a98598a6a47',
+                                    client_secret: '61a3d56d2eca423629e06ed61fc435a62f533e9a',
+                                },
+                                // ...
+                                // For more available options, check out the documentation below
+                            })
+
+                            gitment.render('comments')
+                            // or
+                            // gitment.render(document.getElementById('comments'))
+                            // or
+                            // document.body.appendChild(gitment.render())
+                    </script>
+                </div>
             </div>  
 
     <!-- Side Catalog Container -->
