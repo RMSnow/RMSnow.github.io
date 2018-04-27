@@ -63,8 +63,8 @@ netease_comment: false
 ba_track_id: 3e5b29541c2a6575ef1d32bc50e2f62a
 
 # Google Analytics
-# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-# ga_domain: huangxuan.me
+ga_track_id: 'UA-118325407-1'            # Format: UA-xxxxxx-xx
+ga_domain: zhangxueyao.com
 
 
 
