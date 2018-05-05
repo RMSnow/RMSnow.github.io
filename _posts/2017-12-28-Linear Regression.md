@@ -27,7 +27,7 @@ tags:
 
 ### 判别函数与几何分类
 
-![1](http://img.blog.csdn.net/20140228151228515)
+![1](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr0.png)
 
 上图呈现了典型的几何分类法的特点，其中左侧为线性判别法，右侧为非线性判别法，蓝色的直线与绿色的圆圈就称为判别函数。
 
@@ -35,13 +35,13 @@ tags:
 
 若将二维模式推广至n维，则线性判别函数的一般形式为：
 
-![2](http://img.my.csdn.net/uploads/201712/28/1514446905_6567.png)
+![2](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr1.png)
 
 其中，`X`为增广模式向量，`W`为增广权向量。
 
 我们以两类情况为例，对于模式在`w1`、`w2`中的两类情况，线性判别法的判别方式为：
 
-![3](http://img.my.csdn.net/uploads/201712/28/1514447624_6275.png)
+![3](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr2.png)
 
 当`d(X) = 0`时，为不可判别情况。
 
@@ -180,7 +180,7 @@ tags:
 
 ### 数据集生成
 
-![1](http://img.my.csdn.net/uploads/201712/28/1514453408_3765.png)
+![1](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr3.png)
 
 如上图所示，在`[0, 50]`的范围内随机生成模式集，并具体划分在`0, 1, 2, 3, 4, 5` 这6个类中。
 
@@ -537,7 +537,7 @@ def i_non_i_main(train_data_k, test_data_k, i_j_file):
 
 ### 分段线性判别法
 
-![2](http://img.my.csdn.net/uploads/201712/28/1514452890_8137.png)
+![2](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr5.png)
 
 在分段线性判别法中，我们假设共有父类0-2，且每个父类均有2个子类。具体实现如下：
 
@@ -871,7 +871,7 @@ def class_division_main(train_data_k, test_data_k, class_division_file):
 
 训练数据、测试数据、识别结果如下图所示：
 
-![1](http://img.my.csdn.net/uploads/201712/28/1514453354_9734.png)
+![1](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr6.png)
 
 ### `i_non_i` 分类法
 
@@ -1249,7 +1249,7 @@ data_5不存在判别函数: ....    48
 
 实验结果如下图所示：
 
-![2](http://img.my.csdn.net/uploads/201712/28/1514453654_1032.png)
+![2](https://raw.githubusercontent.com/RMSnow/pr-exp2/master/_source/img/pr7.png)
 
 如上的四个子图中，`train_data`显示了三个父类的训练数据集，`class_division`是已知的子类划分方式，`discriminant_func`是训练所得的判别函数（3个父类，每个父类有2个子类），`test_data`是判别函数对测试集的识别结果。
 
