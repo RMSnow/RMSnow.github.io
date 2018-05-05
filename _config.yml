@@ -71,7 +71,7 @@ ga_domain: zhangxueyao.com
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "影音文体与科技爱好者。"
-sidebar-avatar: /img/img-me.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/img-me-square.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
