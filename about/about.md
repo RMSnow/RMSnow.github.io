@@ -19,7 +19,7 @@ Here is his detailed [CV](https://github.com/RMSnow/CV/blob/master/en-basic/CV-E
 
 - [ThdLee](http://thdlee.com/)
 - [一棵球和一枝猪](https://www.cnblogs.com/chunzhulovefeiyue/)
-- [Ziniu Li](http://www.zhangxueyao.com/about/)
+- [Ziniu Li](http://www.liziniu.org/)
 - [Xiang (Tommy) Yue (岳 翔)](http://whutommy.cn/)
 - [大黄菌的个人博客](http://kyonhuang.top/)
 - [许宜森的个人博客](https://daixinyuxuyisen.cn/)
