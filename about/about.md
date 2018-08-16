@@ -25,3 +25,4 @@ Here is his detailed [CV](https://github.com/RMSnow/CV/blob/master/en-basic/CV-E
 - [许宜森的个人博客](https://daixinyuxuyisen.cn/)
 - [一时博客](https://hellogod.cn/)
 - [文卿的藏剑山庄](http://yaowenqing.com/)
+- [GUO Lanqing](http://guolanqing.com/)
