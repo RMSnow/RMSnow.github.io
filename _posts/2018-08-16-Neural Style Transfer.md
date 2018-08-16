@@ -6,8 +6,8 @@ date:       2018-8-16 12:26:00
 toc: true
 categories:
 - Research
-- Notes
 tags:
+- Notes
 - Deep Learning
 ---
 
