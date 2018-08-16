@@ -2,7 +2,7 @@
 layout:     single
 title:      "Deep Learning & Art: Neural Style Transfer"
 excerpt:   "梵高再临人间！"
-date:       2018-8-4 15:10:00
+date:       2018-8-16 12:26:00
 toc: true
 categories:
 - Research
