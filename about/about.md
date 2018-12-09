@@ -7,7 +7,7 @@ author_profile: true
 
 Xueyao Zhang, born on Jan 17, 1998, entered Computer School of Wuhan University in 2015, majoring in Software Engineering. 
 
-I have been awarded [National Scholarship (2016)](https://raw.githubusercontent.com/RMSnow/CV/master/materials/NationalScholarship.jpg) and First Class Scholarship of WHU (2016, 2017).
+I have been awarded [National Scholarship (2016)](https://raw.githubusercontent.com/RMSnow/CV/master/materials/NationalScholarship.jpg) and First Class Scholarship of WHU (2016, 2017, 2018).
 
 During the undergraduate college, I was in [Network Information System Security & Privacy (NIS&P) Lab](http://nisplab.whu.edu.cn/index.html) as an intern, supevised by Prof [Yanjiao Chen](http://iqua.ece.toronto.edu/ychen). And my research focused on Click-Through Rate (CTR), Ad Fraud Detection and other related filelds.
 
