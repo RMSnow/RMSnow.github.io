@@ -13,3 +13,7 @@
 - [不蒜子](http://ibruce.info/2015/04/04/busuanzi/#more)
 
 ### 社交分享
+
+## Developing
+
+- 本地部署命令：`bundle exec jekyll serve`，URL：`127.0.0.1:4000`

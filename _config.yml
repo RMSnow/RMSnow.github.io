@@ -266,7 +266,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: false
       share: true # change to Gitment
       related: false
