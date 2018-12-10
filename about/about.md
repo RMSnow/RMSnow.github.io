@@ -1,23 +1,23 @@
 ---
-title: "Author"
+title: "News"
 permalink: /about/
 layout: single
 author_profile: true
 ---
 
-Xueyao Zhang, born on Jan 17, 1998, entered Computer School of Wuhan University in 2015, majoring in Software Engineering. 
+- **Next September, I'm going to be a postgraduate in [Institute of Computing Technology Chinese Academy of Sciences ](http://www.ict.ac.cn/) as a master, supevised by associate researcher [Juan Cao](http://sourcedb.ict.cas.cn/cn/jssrck/201011/t20101123_3028158.html). And I'm taking the internship there now.** 
+
+## About Me
+
+Xueyao Zhang (张雪遥), born on Jan 17, 1998, entered Computer School of Wuhan University in 2015, majoring in Software Engineering. 
 
 I have been awarded [National Scholarship (2016)](https://raw.githubusercontent.com/RMSnow/CV/master/materials/NationalScholarship.jpg) and First Class Scholarship of WHU (2016, 2017, 2018).
 
 During the undergraduate college, I was in [Network Information System Security & Privacy (NIS&P) Lab](http://nisplab.whu.edu.cn/index.html) as an intern, supevised by Prof [Yanjiao Chen](http://iqua.ece.toronto.edu/ychen). And my research focused on Click-Through Rate (CTR), Ad Fraud Detection and other related filelds.
 
+My research focuses on **social media computing**, including **Rumor Detection** and etc. Besides, I'm interested in many research areas of Music, especially whose methods are involved in data mining and machine learning, such as **Music Generation**, **Music Information Retrieval** and **Music Recommendation**.
+
 Here is my detailed [CV](https://github.com/RMSnow/CV/blob/master/en-basic/CV-EN.pdf).
-
-## News
-
-Next September, I'm going to be a postgraduate in [Institute of Computing Technology Chinese Academy of Sciences ](http://www.ict.ac.cn/) as a master, supevised by associate researcher [Juan Cao](http://sourcedb.ict.cas.cn/cn/jssrck/201011/t20101123_3028158.html). And I'm taking the internship there now. 
-
-My research focuses on social media computing, including Rumor Detection and etc. Besides, I'm interested in the research of Music, especially whose methods are involved in data mining and machine learning, such as Music Generation and Music Information Retrieval.
 
 ## Friends
 
