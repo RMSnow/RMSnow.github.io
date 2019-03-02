@@ -5,7 +5,7 @@ layout: single
 author_profile: true
 ---
 
-- **Next September, I'm going to be a postgraduate in [Institute of Computing Technology Chinese Academy of Sciences ](http://www.ict.ac.cn/) as a master, supevised by associate researcher [Juan Cao](http://sourcedb.ict.cas.cn/cn/jssrck/201011/t20101123_3028158.html). And I'm taking the internship there now.** 
+- **This September, I'm going to be a postgraduate in [Institute of Computing Technology Chinese Academy of Sciences ](http://www.ict.ac.cn/) as a master, supevised by associate researcher [Juan Cao](http://sourcedb.ict.cas.cn/cn/jssrck/201011/t20101123_3028158.html). And I'm taking the internship there now.** 
 
 ## About Me
 
