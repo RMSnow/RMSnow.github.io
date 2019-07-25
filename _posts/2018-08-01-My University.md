@@ -4,7 +4,7 @@ excerpt:   "迎接总大张旗鼓，告别都悄无声息。"
 date:       2018-8-4 15:10:00
 toc: true
 categories:
-- Essay
+- 随笔
 ---
 
 ## 前言
