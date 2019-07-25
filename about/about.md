@@ -18,5 +18,4 @@ I attended [Wuhan University](https://www.whu.edu.cn/) from 2015 to 2019, majori
 - [许宜森的个人博客](https://daixinyuxuyisen.cn/)
 - [一时博客](https://hellogod.cn/)
 - [文卿的藏剑山庄](http://yaowenqing.com/)
-- [GUO Lanqing](http://guolanqing.com/)
 - [魏睿](https://rayvec.github.io/)
