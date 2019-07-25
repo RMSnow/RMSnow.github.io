@@ -16,8 +16,8 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date: "%B %d, %Y" }}">{% endif %}
 
     <section class="page__content" itemprop="text">
-        <!-- 添加目录 -->
-        {% if page.toc %}
+      <!-- 添加目录 -->
+      {% if page.toc %}
         <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
           <nav class="toc">
             <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label }}</h4></header>
