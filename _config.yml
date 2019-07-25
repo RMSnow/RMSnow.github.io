@@ -265,8 +265,8 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: false
       comments: false
       share: true # change to Gitment
-      related: false
+      related: true
