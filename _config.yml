@@ -269,4 +269,4 @@ defaults:
       read_time: false
       comments: false
       share: false # change to Gitment
-      related: true
+      related: false
