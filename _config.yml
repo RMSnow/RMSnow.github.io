@@ -264,9 +264,9 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: splash
       author_profile: false
       read_time: false
-      comments: true
+      comments: false
       share: false # change to Gitment
       related: true
