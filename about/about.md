@@ -11,7 +11,7 @@ I attended [Wuhan University](https://www.whu.edu.cn/) from 2015 to 2019, majori
 
 ## Publications
 
-**Mining Dual Emotion for Fake News Detection.** [[PDF]](https://arxiv.org/abs/1903.01728) [[Code]](https://github.com/RMSnow/WWW2021) [[Slides]]({{ site.url }}/assets/www2021-dual-emotion-slides.pdf)
+**Mining Dual Emotion for Fake News Detection.** [[PDF]]({{ site.url }}/assets/www2021-dual-emotion-paper.pdf) [[Code]](https://github.com/RMSnow/WWW2021) [[Slides]]({{ site.url }}/assets/www2021-dual-emotion-slides.pdf) [[Video]]({{ site.url }}/assets/www2021-dual-emotion-video.mp4)
 **Xueyao Zhang**, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, and Kai Shu. 
 Proceedings of 30th The Web Conference (**WWW 2021**)
 
