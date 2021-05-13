@@ -15,7 +15,7 @@ I attended [Wuhan University](https://www.whu.edu.cn/) from 2015 to 2019, majori
 Qiang Sheng, Juan Cao, **Xueyao Zhang**, Xirong Li, Lei Zhong
 *Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing* ***(ACL-IJCNLP 2021)***
 
-**Mining Dual Emotion for Fake News Detection.** [[PDF]]({{ site.url }}/assets/www2021-dual-emotion-paper.pdf) [[Code]](https://github.com/RMSnow/WWW2021) [[Slides]]({{ site.url }}/assets/www2021-dual-emotion-slides.pdf) [[Video]]({{ site.url }}/assets/www2021-dual-emotion-video.mp4)
+**Mining Dual Emotion for Fake News Detection.** [[PDF]]({{ site.url }}/assets/www2021-dual-emotion-paper.pdf) [[Code]](https://github.com/RMSnow/WWW2021) [[Slides]]({{ site.url }}/assets/www2021-dual-emotion-slides.pdf) [[Video]]({{ site.url }}/assets/www2021-dual-emotion-video.mp4) [[中文讲解视频]](https://www.bilibili.com/video/BV13o4y1m7c3)
 **Xueyao Zhang**, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, and Kai Shu. 
 *Proceedings of 30th The Web Conference* ***(WWW 2021)***
 
