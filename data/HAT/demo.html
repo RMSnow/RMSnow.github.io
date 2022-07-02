@@ -1,0 +1,443 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        /* Custom player style */
+#section3 midi-player {
+    display: block;
+    width: inherit;
+    margin: 4px;
+    margin-bottom: 0;
+  }
+#section3 midi-player::part(control-panel) {
+  background: rgb(255, 255, 255);
+  border: 2px solid #000;
+  border-radius: 10px 10px 0 0;
+}
+#section3 midi-player::part(play-button) {
+  color: #353;
+  border: 2px solid currentColor;
+  background-color: #4d4;
+  border-radius: 20px;
+  transition: all 0.2s;
+  content: 'hello';
+}
+#section3 midi-player::part(play-button):hover {
+color: #0a0;
+background-color: #5f5;
+border-radius: 10px;
+}
+#section3 midi-player::part(time) {
+font-family: monospace;
+}
+
+/* Custom visualizer style */
+#section3 midi-visualizer .piano-roll-visualizer {
+background: rgb(255, 255, 255);
+border: 2px solid black;
+border-top: none;
+border-radius: 0 0 10px 10px;
+margin: 4px;
+margin-top: 0;
+overflow: auto;
+}
+#section3 midi-visualizer svg rect.note {
+opacity: 0.6;
+stroke-width: 2;
+}
+/* Melody */
+#section3 midi-visualizer svg rect.note[data-instrument="0"]{
+fill: #e22;
+stroke: #500;
+}
+/* Piano Accompaniment */
+#section3 midi-visualizer svg rect.note[data-instrument="2"]{
+  fill: #888;
+  stroke: #888;
+}
+/* Bridge */
+#section3 midi-visualizer svg rect.note[data-instrument="1"]{
+fill: #2ee;
+stroke: #055;
+}
+/* #section3 midi-visualizer svg rect.note[data-is-drum="true"]{
+fill: #888;
+stroke: #888;
+} */
+#section3 midi-visualizer svg rect.note.active {
+opacity: 0.9;
+stroke: #000;
+}
+
+        body,
+        td,
+        th,
+        tr,
+        p,
+        a {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 18px
+        }
+
+        strong {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 18px;
+        /* color: rgb(180, 16, 44); */
+        }
+
+        annot {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 18px;
+        color: rgb(100, 100, 100);
+        }
+
+        papertitle {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 32px;
+            color: rgb(180, 16, 44);
+            /* color: rgb(0, 0, 0); */
+        }
+
+        author {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            /* color : rgb(180, 16, 44) */
+            color: rgb(0, 0, 0);
+        }
+
+        heading {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 25px;
+            color: rgb(180, 16, 44);
+            /* color: rgb(0, 0, 0); */
+        }
+
+        subheading {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 22px;
+            /* font-style:italic; */
+            color : rgb(180, 16, 44)
+            /* color: rgb(0, 0, 0); */
+        }
+
+        .footer {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+            opacity: 0.75;
+            color: #777;
+        }
+
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+
+    <link rel="icon" type="image/png" href="../../images/music.ico">
+    <title>Harmony-Aware Hierarchical Music Transformer</title>
+</head>
+
+<body>
+    <table width="960" border="0" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="12" style="table-layout:fixed;">
+                    <tr>
+                    <td>
+                        <papertitle>Structure-Enhanced Pop Music Generation via Harmony-Aware Learning</papertitle>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <author>Xueyao Zhang, Jinchao Zhang, Yao Qiu, Li Wang, Jie Zhou</author>
+                            <p>
+                                The Chinese University of Hong Kong, Shenzhen, China
+                                <br>
+                                Pattern Recognition Center, WeChat AI, Tencent Inc, China
+                            </p>
+                            <p>
+                                Proceedings of the 30th ACM International Conference on Multimedia (ACM MM 2022)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Abstract</heading>
+                            <p>
+                                Automatically composing pop music with a satisfactory structure is an attractive but challenging topic. Although the musical structure is easy to be perceived by humans, it is difficult to be described clearly and defined accurately. And it is still far from being solved how we should model the structure in pop music generation. In this paper, we propose to leverage harmony-aware learning for structure-enhanced pop music generation. On the one hand, one of the participants of harmony, chord, represents the harmonic set of multiple notes, which is integrated closely with the spatial structure of music, the texture. On the other hand, the other participant of harmony, chord progression, usually accompanies the development of the music, which promotes the temporal structure of music, the form. Moreover, when chords evolve into chord progression, the texture and form can be bridged by the harmony naturally, which contributes to the joint learning of the two structures. Furthermore, we propose the Harmony-Aware Hierarchical Music Transformer (HAT), which can exploit the structure adaptively from the music, and make the musical tokens interact hierarchically to enhance the structure in multi-level musical elements. Experimental results reveal that compared to the existing methods, HAT owns a much better understanding of the structure and it can also improve the quality of generated music, especially in the form and texture.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Compared Methods</heading>
+                            <p>
+                                <li>Our proposed <b>Harmony-Aware Hierarchical Music Transformer (HAT)</b></li>
+                                <li>Music Transformer <annot>(Cheng-Zhi Anna Huang et al., ICLR'19)</annot></li>
+                                <li>CP-Transformer <annot>(Wen-Yi Hsiao et al., AAAI'21)</annot></li>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Dataset</heading>
+                            <p>
+                                We use <a href="https://github.com/music-x-lab/POP909-Dataset" target="_blank">POP909</a> (and its <a href="https://github.com/Dsqvival/hierarchical-structure-analysis" target="_blank">phrase-level annotation</a>) as our experimental dataset.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Code</heading>
+                            <p>
+                                The source code is available at <a href="https://github.com/RMSnow/HAT" target="_blank">here</a>.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Top pieces in the subjective evaluation</heading>
+                            <p>
+                                <strong>Note</strong>: In the following MIDI players, the <i>Melody</i> track, the <i>Accompaniment</i> track, and the <i>Bridge</i> track are respectively visualized in red, gray, and blue.
+                            </p>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                            <p>
+                                Compared Methods: <br>
+                                <li><b>HAT (ours)</b></li>
+                                <li>Music Transformer <annot>(Cheng-Zhi Anna Huang et al., ICLR'19)</annot></li>
+                                <li>CP-Transformer <annot>(Wen-Yi Hsiao et al., AAAI'21)</annot></li>
+                            </p>
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            <subheading>HAT</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 1</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top1.mid"
+                                sound-font visualizer="#HAT1">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top1.mid" id="HAT1"></midi-visualizer>
+                            </section>
+                            Average Score: 0.94 <annot>(Melody: 0.89, Groove: 0.92; Primary Melody: 1.00, Consonance: 0.83; Coherence: 1.00, Integrity: 1.00)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 2</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top2.mid"
+                                sound-font visualizer="#HAT2">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top2.mid" id="HAT2"></midi-visualizer>
+                            </section>
+                            Average Score: 0.92 <annot>(Melody: 0.83, Groove: 1.00; Primary Melody: 0.78, Consonance: 1.00; Coherence: 0.89, Integrity: 1.00)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 3</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top3.mid"
+                                sound-font visualizer="#HAT3">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top3.mid" id="HAT3"></midi-visualizer>
+                            </section>
+                            Average Score: 0.85 <annot>(Melody: 1.00, Groove: 0.93; Primary Melody: 0.93, Consonance: 0.80; Coherence: 0.86, Integrity: 0.56)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 4</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top4.mid"
+                                sound-font visualizer="#HAT4">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top4.mid" id="HAT4"></midi-visualizer>
+                            </section>
+                            Average Score: 0.77 <annot>(Melody: 0.63, Groove: 0.80; Primary Melody: 0.89, Consonance: 0.77; Coherence: 0.72, Integrity: 0.78)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 5</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top5.mid"
+                                sound-font visualizer="#HAT5">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/HAT-top5.mid" id="HAT5"></midi-visualizer>
+                            </section>
+                            Average Score: 0.73 <annot>(Melody: 0.78, Groove: 0.50; Primary Melody: 0.78, Consonance: 0.78; Coherence: 0.67, Integrity: 0.89)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Music Transformer</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 1</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top1.mid"
+                                sound-font visualizer="#MT1">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top1.mid" id="MT1"></midi-visualizer>
+                            </section>
+                            Average Score: 0.74 <annot>(Melody: 0.67, Groove: 0.75; Primary Melody: 0.80, Consonance: 0.75; Coherence: 1.00, Integrity: 0.50)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 2</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top2.mid"
+                                sound-font visualizer="#MT2">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top2.mid" id="MT2"></midi-visualizer>
+                            </section>
+                            Average Score: 0.55 <annot>(Melody: 0.67, Groove: 0.50; Primary Melody: 0.80, Consonance: 0.25; Coherence: 0.60, Integrity: 0.50)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 3</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top3.mid"
+                                sound-font visualizer="#MT3">
+                            </midi-player>
+                            <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/MusicTransformer-top3.mid" id="MT3"></midi-visualizer>
+                            </section>
+                            Average Score: 0.40 <annot>(Melody: 0.33, Groove: 0.25; Primary Melody: 0.60, Consonance: 0.75; Coherence: 0.20, Integrity: 0.25)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>CP-Transformer</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 1</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top1.mid"
+                                sound-font visualizer="#CP1">
+                            </midi-player>
+                            <!-- <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top1.mid"></midi-visualizer> -->
+                            </section>
+                            Average Score: 0.70 <annot>(Melody: 0.76, Groove: 0.58; Primary Melody: 0.69, Consonance: 0.75; Coherence: 0.75, Integrity: 0.69)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 2</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top2.mid"
+                                sound-font visualizer="#CP2">
+                            </midi-player>
+                            <!-- <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top2.mid"></midi-visualizer> -->
+                            </section>
+                            Average Score: 0.67 <annot>(Melody: 0.72, Groove: 0.72; Primary Melody: 0.61, Consonance: 0.44; Coherence: 0.78, Integrity: 0.72)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Top 3</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top3.mid"
+                                sound-font visualizer="#CP3">
+                            </midi-player>
+                            <!-- <midi-visualizer src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CPTransformer-top3.mid"></midi-visualizer> -->
+                            </section>
+                            Average Score: 0.56 <annot>(Melody: 0.39, Groove: 0.39; Primary Melody: 0.61, Consonance: 0.50; Coherence: 0.56, Integrity: 0.89)</annot>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Case Study</heading>
+                            <p>
+                                We adopt the <i>intro</i> of the Chinese pop song, <i>Guang Yin De Gu Shi</i>, as a prompt for different models. Their generated pieces are as follows.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Real piece</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CaseStudy-Real.mid"
+                                sound-font visualizer="#CaseReal">
+                            </midi-player>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>HAT</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CaseStudy-HAT.mid"
+                                sound-font visualizer="#CaseHAT">
+                            </midi-player>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Music Transformer</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CaseStudy-MusicTransformer.mid"
+                                sound-font visualizer="#CaseMT">
+                            </midi-player>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>CP-Transformer</strong>
+                            <section id="section3">
+                            <midi-player
+                                src="https://cdn.jsdelivr.net/gh/RMSnow/RMSnow.github.io@HAT/data/HAT/mid/CaseStudy-CPTransformer.mid"
+                                sound-font visualizer="#CaseCP">
+                            </midi-player>
+                            </section>
+                        </td>
+                    </tr>
+                </table>
+
+                <table width="100%" align="center" border="0" cellpadding="12">
+                    <tr>
+                      <td width="100%" valign="center">
+                        <p class="footer">
+                          Design: <a href="https://www.zhangxueyao.com/" target="_blank" style="color: #777; font-size: 14px;">Xueyao Zhang</a>
+                          <br>MIDI Web Player: <a href="https://github.com/cifkao/html-midi-player" target="_blank" style="color: #777; font-size: 14px;">html-midi-player</a>
+                          <br>Last updated:
+                          <script>
+                            t = new Date(document.lastModified).toLocaleDateString()
+                            document.write(t);
+                          </script>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+            </td>
+        </tr>
+    </table>
+</body>
