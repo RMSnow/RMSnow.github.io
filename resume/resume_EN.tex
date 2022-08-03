@@ -17,7 +17,7 @@
 
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
+    colorlinks=false,
     linkcolor=blue,
     filecolor=blue,      
     urlcolor=blue,
@@ -27,16 +27,22 @@
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\Large{
-  \begin{tabu}{ c l l }
-   \multirow{4}{1in}{\includegraphics[width=0.95in]{me.jpeg}} & \scshape{Xueyao Zhang（张雪遥）} &  \\
-    & \email{zhangxueyao19s@ict.ac.cn} & \phone{~~(+86) 152-0390-0168} \\
-    % & \phone{(+86) 152-0390-0168} &  \\
-    & \faWechat{ xueyao\_98} & \github[~~github.com/RMSnow]{https://github.com/RMSnow} \\
-    & \faHome{\href{https://www.zhangxueyao.com}{~~zhangxueyao.com}}
-    & \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~~Google Scholar}} 
-  \end{tabu}
-}
+% \Large{
+%   \begin{tabu}{ c l l }
+%     & \scshape{Xueyao Zhang（张雪遥）} &  \\
+%     & \email{xueyao\_98@foxmail.com} & \github[~~github.com/RMSnow]{https://github.com/RMSnow} \\
+%     & \faHome{\href{https://www.zhangxueyao.com}{~~zhangxueyao.com}}
+%     & \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~~Google Scholar}} 
+%   \end{tabu}
+% }
+
+\name{Xueyao Zhang（张雪遥）}
+
+\basicInfo{
+  \faEnvelope{~xueyao\_98@foxmail.com} \textperiodcentered\ 
+  \faDesktop{\href{https://www.zhangxueyao.com}{~zhangxueyao.com}} \textperiodcentered\ 
+  \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~Google Scholar}} }
+
 
 \section{Education}
 \datedsubsection{\textbf{School of Data Science, The Chinese University of Hong Kong, Shenzhen}}{Sept. 2022 -- }
@@ -44,7 +50,7 @@
   \small 
 \begin{itemize}
   \item Ph.D. student in Data Science
-  \item Areas of Study (expected): Speech Synthesis, especially on Singing Voice Synthesis / Conversion
+  \item Areas of Study (expected): Automatic Music Creation, especially on Singing Voice Synthesis / Conversion
   \item Advisor: Professor \href{https://scholar.google.com/citations?user=K6zhweAAAAAJ&hl=en}{Zhizheng Wu} 
 \end{itemize}
 }
@@ -73,52 +79,16 @@
 }
 
 
-\section{Representative Publications}
+\section{Publications}
 
-\textbf{\large Topic: \framebox[1.1\width]{Automatic Music Creation}}
-\datedsubsection{\textbf{1.} \quad \textit{\textbf{Structure-Enhanced Pop Music Generation via Harmony-Aware Learning}}}{}
-{\small \role{\textbf{\underline{Xueyao Zhang}}, Jinchao Zhang, Yao Qiu, Li Wang, Jie Zhou.}{Proceedings of the 30th ACM International Conference on Multimedia \textbf{(ACM MM 2022)}\quad \href{https://arxiv.org/pdf/2109.06441.pdf}{[Preprint]} \href{https://www.zhangxueyao.com/data/HAT/demo.html}{[Demo]}}
-}
-\small
-\textit{TL;DR}: We propose to learn harmony for generating form- and texture- enhanced pop music.
+\begin{enumerate}\itemsep 0.5em
+  \item \textbf{Xueyao Zhang}, Jinchao Zhang, Yao Qiu, Li Wang, Jie Zhou.\\Structure-Enhanced Pop Music Generation via Harmony-Aware Learning. \textit{Proceedings of the 30th ACM International Conference on Multimedia (ACM MM 2022).}
+  \item \textbf{Xueyao Zhang}, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, Kai Shu.\\Mining Dual Emotion for Fake News Detection. \textit{Proceedings of the 30th Web Conference (WWW 2021).}
+  \item Qiang Sheng*, \textbf{Xueyao Zhang}*, Juan Cao, Lei Zhong.  (*: Equal Contribution)\\Integrating Pattern- and Fact-based Fake News Detection via Model Preference Learning. \textit{Proceedings of the 30th ACM International Conference on Information and Knowledge Management (CIKM 2021).}
+  \item Qiang Sheng, Juan Cao, \textbf{Xueyao Zhang}, Xirong Li, Lei Zhong.\\Article Reranking by Memory-enhanced Key Sentence Matching for Detecting Previously Fact-checked Claims. \textit{Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021) }
+  \item Qiang Sheng, Juan Cao, \textbf{Xueyao Zhang}, Rundong Li, Danding Wang, Yongchun Zhu.\\Zoom Out and Observe: News Environment Perception for Fake News Detection. \textit{Proceedings of the Joint Conference of the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022).}
+\end{enumerate}
 
-
-\textbf{\\
-  \large Topic: \framebox[1.1\width]{Fake News Detection}
-}
-
-\datedsubsection{\textbf{1.} \quad \textit{\textbf{Mining Dual Emotion for Fake News Detection}}}{}
-{\small \role{\textbf{\underline{Xueyao Zhang}}, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, Kai Shu.}{Proceedings of the 30th Web Conference \textbf{(WWW 2021)}\quad \href{https://www.zhangxueyao.com/data/www2021-dual-emotion-paper.pdf}{[PDF]} \href{https://github.com/RMSnow/WWW2021}{[Code]} \href{https://www.zhangxueyao.com/data/www2021-dual-emotion-slides.pdf}{[Slides]} \href{https://www.zhangxueyao.com/data/www2021-dual-emotion-video.mp4}{[Video]} \href{https://www.bilibili.com/video/BV13o4y1m7c3}{[Chinese Video]}
-}
-\small
-\textit{TL;DR}: We leverage both publisher emotion and social emotion for fake news detection.
-
-\datedsubsection{\textbf{2.} \quad \textit{\textbf{Integrating Pattern- and Fact-based Fake News Detection via Model Preference Learning}}}{}
-{\small \role{Qiang Sheng*, \textbf{\underline{Xueyao Zhang}}*, Juan Cao, Lei Zhong. (*: Equal Contribution)}{Proceedings of the 30th ACM International Conference on Information and Knowledge Management \textbf{(CIKM 2021)}\quad \href{https://dl.acm.org/doi/10.1145/3459637.3482440}{[PDF]} \href{https://www.zhangxueyao.com/data/cikm2021-PrefFEND-poster.pdf}{[Poster]} \href{https://github.com/ICTMCG/Pref-FEND}{[Code]} \href{https://zhuanlan.zhihu.com/p/414464291}{[Chinese Blog]}}
-}
-\small
-\textit{TL;DR}: We propose a graph-based model preference learning framework to separately handle the pattern and fact indicators in fake news detection.
-
-% \datedsubsection{\textbf{3.} \quad \textit{\textbf{Article Reranking by Memory-enhanced Key Sentence Matching for Detecting Previously Fact-checked Claims} (Long Paper; Poster; Second student author)}}{}
-% {\small \role{Qiang Sheng, Juan Cao, \textbf{\underline{Xueyao Zhang}}, Xirong Li, Lei Zhong.}{Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics \textbf{(ACL 2021)}\quad \href{https://aclanthology.org/2021.acl-long.425.pdf}{[PDF]} \href{https://www.zhangxueyao.com/data/acl2021-MTM-poster.pdf}{[Poster]} \href{https://github.com/ICTMCG/MTM}{[Code]} \href{https://zhuanlan.zhihu.com/p/393615707}{[Chinese Blog]}}
-% \small
-% \textit{TL;DR:} We detect previously fact-checked claims by matching them against the key sentences in fact-checking articles.
-
-% \datedsubsection{\textbf{4.} \quad \textit{\textbf{Zoom Out and Observe: News Environment Perception for Fake News Detection} (Long Paper; Poster; Second student author)}}{}
-% {\small \role{Qiang Sheng, Juan Cao, \textbf{\underline{Xueyao Zhang}}, Rundong Li, Danding Wang, Yongchun Zhu.}{Proceedings of the Joint Conference of the 60th Annual Meeting of the Association for Computational Linguistics \textbf{(ACL 2022)}\quad \href{https://aclanthology.org/2022.acl-long.311.pdf}{[PDF]} \href{https://github.com/ICTMCG/News-Environment-Perception}{[Code]}}
-% \small
-% \textit{TL;DR}: We leverage the external news environment where a news post is created and disseminated for detecting fake news.
-
-% \section{Academic Services}
-% \datedsubsection{\textbf{Reviewer / PC Member}}{}
-% \begin{itemize}
-%   \item ACL Rolling Review
-%   \item ACM MM 2022
-%   \item EMNLP 2021
-%   \item ACM CSCW 2021
-%   \item Information Processing and Management (IP\&M)
-%   \item Journal of Chinese Information Processing (中文信息学报)
-% \end{itemize}
 
 \section{Internships}
 \datedsubsection{\faWechat{} \textbf{WeChat, Tencent}}{Apr. 2021 -- Feb. 2022}
@@ -128,25 +98,32 @@
 % \small
 \begin{itemize}
   \item My research topic is \textit{symbolic music generation}. Besides, I supply the technical support of musicology knowledge (including music theory) for our team. 
-  \item In May 2021, I gave a talk on music, \href{https://www.zhangxueyao.com/data/wcpr-pop-music.pdf}{\underline{How to create a pop song? (一首流行歌是如何创作的)}}
-  \item In Jan 2022, I participated to release the theme song of WeChat Open Class 2022 as a co-producer, \href{https://y.qq.com/n/ryqq/songDetail/000xeNJ53orPG2}{Ru Wei (入微)}, which was composed by AI and sung by humans.
+  \item In May 2021, I gave a talk on music, \href{https://www.zhangxueyao.com/data/wcpr-pop-music.pdf}{\underline{How to create a pop song? \textit{(一首流行歌是如何创作的)}}}
+  \item In Jan 2022, I participated to release the theme song of WeChat Open Class 2022 as a co-producer, \href{https://y.qq.com/n/ryqq/songDetail/000xeNJ53orPG2}{Ru Wei \textit{(入微)}}, which was composed by AI and sung by humans.
 \end{itemize}
 
-% \section{Teaching Experiences}
-% \datedsubsection{\textbf{Teaching Assistant, Wuhan University}}{2017 Fall}
-% \small
-% Object-Oriented Programming (JAVA), School of Computer Science
+\section{Services}
+\datedsubsection{\textbf{Reviewer}}{}
+\begin{itemize}
+  \item Conferences: ACL Rolling Review, ACM MM 2022, EMNLP 2021, ACM CSCW 2021
+  \item Journals: Information Processing and Management (IP\&M), Journal of Chinese Information Processing \textit{（中文信息学报）}
+\end{itemize}
+\datedsubsection{\textbf{Teaching Assistant}}{}
+\begin{itemize}
+  \item 2017 Fall, Object-Oriented Programming (JAVA), Wuhan University
+\end{itemize}
 
 \section{Honors and Awards}
 \begin{enumerate}
-  \item National Graduate Scholarship, Ministry of Education of China (Top 0.2\%, 2021)
-  \item National Undergraduate Scholarship, Ministry of Education of China (Top 0.2\%, 2016)
-  \item Third place at Campus Singer Competition, University of Chinese Academy of Sciences（Top 3, 2020）
-  \item Outstanding Graduate, University of Chinese Academy of Sciences (Top 5\%, 2022)
-  \item Excellent Bachelor Thesis, Wuhan University (Top 5\%, 2019)
-  \item First price in Chinese High School Mathematics League (Top 50 in Henan Province, 2014)
-  \item Merit Student, University of Chinese Academy of Sciences (2020; 2021; 2022)
-  \item Merit Student and Outstanding Student Leaders, Wuhan University (2016; 2017; 2018)
+  \item National Graduate Scholarship, Ministry of Education of China \textit{研究生国家奖学金} (Top 0.2\%, 2021)
+  \item National Undergraduate Scholarship, Ministry of Education of China \textit{本科生国家奖学金} (Top 0.2\%, 2016)
+  \item Third place at Campus Singer Competition, University of Chinese Academy of Sciences \textit{中国科学院大学校园歌手大赛季军} (Top 3, 2020）
+  \item Outstanding Graduate, University of Chinese Academy of Sciences \textit{中国科学院大学优秀毕业生} (Top 5\%, 2022)
+  \item Outstanding Graduate, Beijing Municipal Education Commission \textit{北京市优秀毕业生} (Top 5\%, 2022)
+  \item Excellent Bachelor Thesis, Wuhan University \textit{武汉大学优秀毕业论文} (Top 5\%, 2019)
+  \item First price in Chinese High School Mathematics League \textit{全国高中数学联赛一等奖} (Top 50 in Henan Province, 2014)
+  \item Merit Student, University of Chinese Academy of Sciences \textit{中国科学院大学三好学生} (2020; 2021; 2022)
+  \item Merit Student and Outstanding Student Leaders, Wuhan University \textit{武汉大学三好学生、优秀班干部} (2016; 2017; 2018)
 \end{enumerate}
 
 \section{Musical Abilities}
