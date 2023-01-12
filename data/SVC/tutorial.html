@@ -1,0 +1,546 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <style type="text/css">
+        body,
+        td,
+        th,
+        tr,
+        p,
+        a {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 18px
+        }
+
+        a.cite {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            color: rgb(100, 100, 100);
+            text-decoration: none;
+        }
+
+        strong {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            /* color: rgb(180, 16, 44); */
+        }
+
+        annot {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            color: rgb(100, 100, 100);
+        }
+
+        papertitle {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 32px;
+            color: rgb(180, 16, 44);
+            /* color: rgb(0, 0, 0); */
+        }
+
+        author {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            /* color : rgb(180, 16, 44) */
+            color: rgb(0, 0, 0);
+        }
+
+        heading {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 25px;
+            color: rgb(180, 16, 44);
+            /* color: rgb(0, 0, 0); */
+        }
+
+        subheading {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 22px;
+            /* font-style:italic; */
+            color: rgb(180, 16, 44)
+                /* color: rgb(0, 0, 0); */
+        }
+
+        li {
+            line-height: 25px;
+        }
+
+        .footer {
+            font-family: 'Lato', Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+            opacity: 0.75;
+            color: #777;
+        }
+    </style>
+    <!-- <script
+        src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <link rel="icon" type="image/png" href="../../images/music.ico">
+    <title>Singing Voice Conversion</title>
+</head>
+
+<body>
+    <table width="960" border="0" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="12"
+                    style="table-layout:fixed;">
+                    <tr>
+                        <td>
+                            <papertitle>Singing Voice Conversion Tutorial</papertitle>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                <author>Xueyao Zhang</author>
+                            </b>
+                            <p>
+                                CSC3160/MDS6002, Spring 2023
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Contents</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <li>What is Singing Voice Conversion?</li>
+                            <li style="text-indent:20px">Intra-singer conversion</li>
+                            <li style="text-indent:20px">Inter-singer conversion</li>
+                            <li style="text-indent:20px">Cross-domain conversion</li>
+                            <br>
+                            <li>Application and User Scenarios</li>
+                            <li style="text-indent:20px">Imitation and Entertainment</li>
+                            <li style="text-indent:20px">Singing Voice Beautification</li>
+                            <li style="text-indent:20px">Education</li>
+                            <li style="text-indent:20px">Creative Art</li>
+                            <br>
+                            <li>Recommended Datasets</li>
+                            <br>
+                            <li>Recommended Papers</li>
+                            <li style="text-indent:20px">Paradigm of the conversion framework (Basics)</li>
+                            <li style="text-indent:20px">To model singer independent features</li>
+                            <li style="text-indent:20px">To model singer dependent features</li>
+                            <li style="text-indent:20px">To introduce singing voice domain knowledge</li>
+                            <br>
+                            <li>Baseline: WORLD-based SVC</li>
+                            <li style="text-indent:20px">What is WORLD?</li>
+                            <li style="text-indent:20px">Overview</li>
+                            <li style="text-indent:20px">Demo</li>
+                            <li style="text-indent:20px">Potential Ideas</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>What is Singing Voice Conversion?</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Sing voice conversion (SVC) is to converse <b>singing voice</b> to our <b>desired
+                                    targets</b>.
+                                There are three common SVC tasks:
+                                <li style="text-indent:20px">
+                                    <b>Intra-singer conversion</b>: To converse a singer's voice to a desired timbre
+                                    (eg: to a more beautiful voice).
+                                </li>
+                                <li style="text-indent:20px">
+                                    <b>Inter-singer conversion</b>: To converse a singer's voice to another singers'
+                                    one.
+                                </li>
+                                <li style="text-indent:20px">
+                                    <b>Cross-domain conversion</b>: It means the source voice and target voice are from
+                                    different domains. For example, to converse a speech voice to singing voice.
+                                </li>
+                            </p>
+                            <p>
+                                Here are some examples:
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Intra-singer conversion</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <b>Source</b>:
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/LiJiawei/LiJiawei-source.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <b>Target</b>:
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/LiJiawei/LiJiawei-target.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <a class="cite"
+                                    href="https://www.bilibili.com/video/BV1VW4y167ip/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=85eed151e987f4dc517690ea06127710">Jiawei
+                                    Li. Use
+                                    more chest resonance for increasing your singing’s power. Bilibili,
+                                    2022.
+                                </a>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Inter-singer conversion</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <b>Source</b>:
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/InterSinger/source.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <b>Reference</b>:
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/InterSinger/reference.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <b>Target</b> (source singer's content + reference singer's timbre):
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/InterSinger/target.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <a class="cite">Chao Wang, et al. Towards High-Fidelity Singing Voice Conversion with
+                                    Acoustic Reference
+                                    and Contrastive Predictive Coding. InterSpeech 2022.
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Cross-domain conversion</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <b>Source</b> (singing voice):
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/CrossDomain/source.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <b>Reference</b> (speech):
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/CrossDomain/reference.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <b>Target</b> (source singer's content + reference speaker's timbre):
+                                <br><br>
+                                <audio controls>
+                                    <source src="./data/CrossDomain/target.wav" type="audio/mpeg">
+                                </audio>
+                            </p>
+                            <p>
+                                <a class="cite">Heyang Xue, et al. Learn2Sing 2.0: Diffusion and Mutual
+                                    Information-Based Target Speaker SVS by Learning from Singing Teacher. InterSpeech
+                                    2022.
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Application and User Scenarios</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Imitation and Entertainment</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>Impression Show</i> to various singers:
+                            <p>
+                                <video width="600" controls>
+                                    <source src="./data/App/JieJiuShiNvWang.mp4" type="video/mp4">
+                                </video>
+                                <br>
+                                <a class="cite"
+                                    href="https://www.bilibili.com/video/BV1eR4y1A75e/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=85eed151e987f4dc517690ea06127710">Ya
+                                    Yue. Arrangements for 姐就是女王 as different singers' styles. Bilibili, 2022. </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Singing Voice Beautification</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tone Tuning:
+                            <p>
+                                <video width="600" controls>
+                                    <source src="./data/App/ToneTuning.mp4" type="video/mp4">
+                                </video>
+                                <br>
+                                <a class="cite"
+                                    href="https://www.bilibili.com/video/BV1uJ411q7xp/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=85eed151e987f4dc517690ea06127710">Magic
+                                    of Tuner. Bilibili, 2022. </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Education</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Vocal music teaching:
+                            <p>
+                                <video width="600" controls>
+                                    <source src="./data/LiJiawei/parallel.mp4" type="video/mp4">
+                                </video>
+                                <br>
+                                <a class="cite"
+                                    href="https://www.bilibili.com/video/BV1VW4y167ip/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=85eed151e987f4dc517690ea06127710">Jiawei
+                                    Li. Use
+                                    more chest resonance for increasing your singing’s power. Bilibili,
+                                    2022.
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Creative Art</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Translate vocal music to instrumental music:
+                            <p>
+                                <video width="600" controls>
+                                    <source src="./data/App/BeatIt.mp4" type="video/mp4">
+                                </video>
+                                <br>
+                                <a class="cite"
+                                    href="https://www.bilibili.com/video/BV1ZJ411y7dy/?spm_id_from=333.999.0.0&vd_source=85eed151e987f4dc517690ea06127710">Peter
+                                    Bence. Beat it (piano cover). Bilibili, 2022. </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Recommended Datasets</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <li><b>NUS-48E</b> (English): 2.8 hours, 12 singers, 20 unique songs. <annot>[1]</annot>
+                                </li>
+                                <!-- <br> -->
+                                <li><b>Opencpop</b> (Mandarian): 5.25 hours, 1 singers, 100 unique songs. <annot>[2]
+                                    </annot>
+                                </li>
+                                <!-- <br> -->
+                                <li><b>M4Singer</b> (Mandarian): 30.59 hours, 19 singers, 419 unique songs. <annot>[3]
+                                    </annot>
+                                </li>
+                                <!-- <br> -->
+                            </p>
+                            <p>
+                                <a class="cite">
+                                    [1] Zhiyan Duan, et al. The NUS sung and spoken lyrics corpus: A
+                                    quantitative comparison of singing and speech. APSIPA 2013. <br>
+                                    [2] Yu Wang, et al. Opencpop: A High-Quality Open Source Chinese Popular Song Corpus
+                                    for Singing Voice Synthesis. InterSpeech 2022. <br>
+                                    [3] Lichao Zhang, et al. M4Singer: a Multi-Style, Multi-Singer and Musical Score
+                                    Provided Mandarin Singing Corpus. NeurIPS 2022.
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Recommended Papers</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Here I listed some SVC papers with <b>non-parallel</b> data. "Non-parallel" means that
+                            we do not have the <i>(source audio, target audio)</i> pairs data. You can refer to <a
+                                href="./data/UnparallelSVC.pdf">this review</a> to know more about it.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Paradigm of the conversion framework (Basics)</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <li>
+                                    Xin Chen, et al. Singing Voice Conversion with Non-parallel Data. IEEE MIPR 2019.
+                                </li>
+                                <li>
+                                    Eliya Nachmani, et al. Unsupervised Singing Voice Conversion. InterSpeech 2019.
+                                </li>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>To model singer independent features</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <li>
+                                    Zhonghao Li, et al. PPG-Based Singing Voice Conversion with Adversarial
+                                    Representation Learning. ICASSP 2021.
+                                </li>
+                                <li>
+                                    Jordi Bonada, et al. Semi-supervised Learning for Singing Synthesis Timbre. ICASSP
+                                    2021.
+                                </li>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>To model singer dependent features</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <li>
+                                    Xu Li, et al. A Hierarchical Speaker Representation Framework for One-shot Singing
+                                    Voice Conversion. InterSpeech 2022.
+                                </li>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>To introduce singing voice domain knowledge</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <li>
+                                    Chengqi Deng et al. PitchNet: Unsupervised Singing Voice Conversion with Pith
+                                    Adversarial Network. ICASSP 2020.
+                                </li>
+                                <li>
+                                    Haohan Guo et al. Improving Adversarial Waveform Generation Based Singing Voice
+                                    Conversion with Harmonic Signals. ICASSP 2022.
+                                </li>
+                                <li>
+                                    Tae-Woo Kim et al. Adversarial Multi-Task Learning for Disentangling Timbre and
+                                    Pitch in Singing Voice Synthesis. InterSpeech 2022.
+                                </li>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <heading>Baseline: WORLD-based SVC</heading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The source code and dataset of this baseline can be seen <a
+                                href="https://github.com/SLPcourse/Singing-Voice-Conversion">here</a>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>What is WORLD?</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Overview</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Demo</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Potential Ideas</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <li>To inject <b>singing voice domain knowledge</b> (eg: pitch,
+                                duration,
+                                score,
+                                timbre
+                                features) in to the model.</li>
+                            <!-- <br> -->
+                            <li>To explore the impact of different <b>vocoders</b>.</li>
+                            <!-- <br> -->
+                            <li>To design better <b>evaluation metrics</b>. For example, more robust objective
+                                evaluation, or
+                                more efficient and friendly subjective evaluation.</li>
+                            <!-- <br> -->
+                            <li>To improve the <b>explainability</b> of SVC. For example, visualize the different module
+                                of
+                                the deep learning framework.
+                                <!-- </li> -->
+                        </td>
+                    </tr>
+                </table>
+
+                <table width="100%" align="center" border="0" cellpadding="12">
+                    <tr>
+                        <td width="100%" valign="center">
+                            <p class="footer">
+                                Design: <a href="https://www.zhangxueyao.com/" target="_blank"
+                                    style="color: #777; font-size: 14px;">Xueyao Zhang</a>
+                                <br>Last updated:
+                                <script>
+                                    t = new Date(document.lastModified).toLocaleDateString()
+                                    document.write(t);
+                                </script>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span id="busuanzi_container_page_pv">#Views: <span
+                                        id="busuanzi_value_page_pv"></span></span> (2022/7/6~)
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
