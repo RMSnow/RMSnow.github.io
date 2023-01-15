@@ -12,6 +12,12 @@
             font-size: 18px
         }
 
+        /* th,
+        td.demo {
+            border-style: solid;
+            border-color: #96D4D4;
+        } */
+
         a.cite {
             font-family: 'Lato', Verdana, Helvetica, sans-serif;
             font-size: 16px;
@@ -101,7 +107,8 @@
                                 <author>Xueyao Zhang</author>
                             </b>
                             <p>
-                                CSC3160/MDS6002, Spring 2023
+                                <!-- CSC3160/MDS6002, Spring 2023 -->
+                                The Chinese University of Hong Kong, Shenzhen
                             </p>
                         </td>
                     </tr>
@@ -134,15 +141,14 @@
                             </li>
                             <li style="text-indent:20px; list-style-type: circle">To introduce singing voice domain
                                 knowledge</li>
-                            <!-- <br> -->
                             <li class="contents">Baseline: WORLD-based SVC</li>
                             <li style="text-indent:20px; list-style-type: circle">What is WORLD?</li>
                             <li style="text-indent:20px; list-style-type: circle">Overview</li>
                             <li style="text-indent:20px; list-style-type: circle">Demo</li>
-                            <!-- <br> -->
-                            <li class="contents">CSC3160/MDS6002 Project Description</li>
+
+                            <!-- <li class="contents">CSC3160/MDS6002 Project Description</li>
                             <li style="text-indent:20px; list-style-type: circle">Requirements</li>
-                            <li style="text-indent:20px; list-style-type: circle">Potential Ideas</li>
+                            <li style="text-indent:20px; list-style-type: circle">Potential Ideas</li> -->
                         </td>
                     </tr>
                     <tr>
@@ -518,10 +524,162 @@
                     </tr>
                     <tr>
                         <td>
-                            TBD
+                            <table width="100%" border="1" cellspacing="0" cellpadding="12"
+                                style="border-color: rgb(250, 250, 250)">
+                                <tr>
+                                    <td align="center">
+                                        <b>Source</b>
+                                    </td>
+                                    <td align="center">
+                                        <b>Ground Truth</b>
+                                    </td>
+                                    <td align="center">
+                                        <b>WORLD</b>
+                                    </td>
+                                    <td align="center">
+                                        <b>Converted Result</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Alto-4
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-4_一首简单的歌_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-4_一首简单的歌_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-4_一首简单的歌_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Alto-5
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-5_一千年以后_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-5_一千年以后_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Alto-5_一千年以后_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Tenor-6
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-6_像我这样的人_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-6_像我这样的人_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-6_像我这样的人_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Tenor-7
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-7_一生守候_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-7_一生守候_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Tenor-7_一生守候_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Soprano-2
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Soprano-3
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Bass-2
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-2_DEAR_JOHN_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-2_DEAR_JOHN_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-2_DEAR_JOHN_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Bass-3
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-3_像我这样的人_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-3_像我这样的人_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Bass-3_像我这样的人_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <heading>CSC3160/MDS6002 Project Description</heading>
                         </td>
@@ -548,19 +706,15 @@
                                 score,
                                 timbre
                                 features) in to the model.</li>
-                            <!-- <br> -->
                             <li>To explore the impact of different <b>vocoders</b>.</li>
-                            <!-- <br> -->
                             <li>To design better <b>evaluation metrics</b>. For example, more robust objective
                                 evaluation, or
                                 more efficient and friendly subjective evaluation.</li>
-                            <!-- <br> -->
                             <li>To improve the <b>explainability</b> of SVC. For example, visualize the different module
                                 of
                                 the deep learning framework.
-                                <!-- </li> -->
                         </td>
-                    </tr>
+                    </tr> -->
                 </table>
 
                 <table width="100%" align="center" border="0" cellpadding="12">
