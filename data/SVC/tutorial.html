@@ -144,6 +144,7 @@
                             <li class="contents">Baseline: WORLD-based SVC</li>
                             <li style="text-indent:20px; list-style-type: circle">What is WORLD?</li>
                             <li style="text-indent:20px; list-style-type: circle">Overview</li>
+                            <li style="text-indent:20px; list-style-type: circle">Implementation Details</li>
                             <li style="text-indent:20px; list-style-type: circle">Demo</li>
 
                             <!-- <li class="contents">CSC3160/MDS6002 Project Description</li>
@@ -159,20 +160,20 @@
                     <tr>
                         <td>
                             <p>
-                                Sing voice conversion (SVC) is to converse <b>singing voice</b> to our <b>desired
+                                Sing voice conversion (SVC) is to convert <b>singing voice</b> to our <b>desired
                                     targets</b>.
                                 There are three common SVC tasks:
                                 <li style="text-indent:20px">
-                                    <b>Intra-singer conversion</b>: To converse a singer's voice to a desired timbre
+                                    <b>Intra-singer conversion</b>: To convert a singer's voice to a desired timbre
                                     (eg: to a more beautiful voice).
                                 </li>
                                 <li style="text-indent:20px">
-                                    <b>Inter-singer conversion</b>: To converse a singer's voice to another singers'
+                                    <b>Inter-singer conversion</b>: To convert a singer's voice to another singers'
                                     one.
                                 </li>
                                 <li style="text-indent:20px">
-                                    <b>Cross-domain conversion</b>: It means the source voice and target voice are from
-                                    different domains. For example, to converse a speech voice to singing voice.
+                                    <b>Cross-domain conversion</b>: It means the source audio and target audio are from
+                                    different domains. For example, to convert a speech voice to singing voice.
                                 </li>
                             </p>
                             <p>
@@ -493,7 +494,7 @@
                     </tr>
                     <tr>
                         <td>
-                            The source code and dataset of this baseline can be seen <a
+                            All the source code of this baseline can be seen <a
                                 href="https://github.com/SLPcourse/Singing-Voice-Conversion">here</a>.
                         </td>
                     </tr>
@@ -504,7 +505,55 @@
                     </tr>
                     <tr>
                         <td>
-                            TBD
+                            <p>
+                                WORLD <a class="cite">[1]</a> is a classical vocoder in Digital Signal Processing (DSP).
+                                It supposes there are three acoustic components of an audio: Fundamental frequency (F0),
+                                Spectral envelope (SP), and Aperiodic
+                                parameter (AP). It can be considered not only an extractor, which can extract F0, SP,
+                                and AP efficiently, but also a synthesizer, which can synthesis an audio by
+                                incorporating
+                                the three.
+                            </p>
+                            <p>
+                                Compared to the recent neural-based vocoders (such as WaveNet, WaveRNN, Hifi-GAN,
+                                Diffwave, etc.),
+                                WORLD is more like a white box and is more controllable and manipulable, while its
+                                synthesis
+                                quality is worse. We can easily adjust the input parameters to change the synthesized
+                                audios. For example, given such a male singing voice:
+                            </p>
+                            <p>
+                                <audio controls src="./data/WORLD/LiJian/source.wav">
+                                </audio>
+                            </p>
+                            <p>
+                                We can keep the F0 unchanged, and convert it to a robot-like voice:
+                            </p>
+                            <p>
+                                <audio controls src="./data/WORLD/LiJian/pitch_all_100.wav">
+                                </audio>
+                            </p>
+                            <p>
+                                Or, we can also increase the F0 two times, divide the SP by 1.2, and
+                                convert it to a female-like voice:
+                            </p>
+                            <p>
+                                <audio controls src="./data/WORLD/LiJian/pitch_times_2_sp_div_1.2.wav">
+                                </audio>
+                            </p>
+                            <p>
+                                The official code of WORLD has been released <a
+                                    href="https://github.com/mmorise/World">here</a>. You can play it, and manipulate
+                                the voice as you like!
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="cite">
+                                [1] Masanori Morise, et al. WORLD: A Vocoder-Based High-Quality Speech Synthesis
+                                System for Real-Time Applications. IEICE Trans. Inf. Syst. 2016.
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -513,8 +562,81 @@
                         </td>
                     </tr>
                     <tr>
+                        <td align="center">
+                            <img src="./data/framework.png" width="1000">
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
-                            TBD
+                            <p>
+                                The conversion framework of the figure above is proposed by <a class="cite">[1]</a>.
+                                There are two main
+                                modules of
+                                it, <i>Content Extractor</i> and <i>Singer-specific Synthesizer</i>. Given a source
+                                audio,
+                                firstly the <i>Content Extractor</i> is aim to extract content features (i.e.,
+                                <b>singer independent
+                                    features</b>) from the audio. Then, the <i>Singer-specific Synthesizer</i> is
+                                designed to
+                                inject the <b>singer dependent features</b> for the synthesis, so that the target
+                                audio can be able to capture the singer's characteristics.
+                            </p>
+                            <p>
+                                The authors of <a class="cite">[1]</a> assume that among the three components of
+                                WORLD (i.e., F0, AP, and SP), only SP is singer dependent and should be modeled by the
+                                <i>Singer-specific Synthesizer</i>, while the other two can be
+                                considered pure content features. Based on that, we can utilize the following two stages
+                                to conduct <b>any-to-one</b> conversion:
+                                <li style="text-indent:20px;">
+                                    <b>Acoustics Mapping Training</b> (Training Stage): This stage is to train the
+                                    mapping from the
+                                    textual
+                                    content features (eg: PPG) to the target singer's acoustic features (eg: SP or
+                                    MCEP). The training model can be a neural network like Bi-LSTM <a
+                                        class="cite">[1]</a>.
+                                </li>
+                                <li style="text-indent:20px;">
+                                    <b>Inference and Conversion</b> (Conversion Stage): Given any source singer's audio,
+                                    firstly, extract its content features including F0, AP, and textual content
+                                    features.
+                                    Then, use the model of training stage to infer the converted acoustic features (SP
+                                    or MCEP).
+                                    Finally, given F0, AP, and the converted SP, we
+                                    utilize WORLD as vocoder to synthesis the converted audio.
+                                </li>
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <subheading>Implementation Details</subheading>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                The experiment setting is many-to-one conversion. Specifically, we consider <a
+                                    href="https://wenet.org.cn/opencpop/">Opencpop</a>
+                                (which is a single singer dataset) as target singer and use <a
+                                    href="https://github.com/M4Singer/M4Singer">M4Singer</a> (which is a 19-singer
+                                dataset)
+                                as source singers.
+                            </p>
+                            <p>
+                                We adopt a <a
+                                    href="https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder">python
+                                    wrapper of WORLD</a> to extract F0, AP, and SP, and to synthesis audios. We use <a
+                                    href="https://github.com/sp-nitech/diffsptk">diffsptk</a> to transform between SP
+                                and
+                                MCEP. We utilize the last layer encoder's output of <a
+                                    href="https://github.com/openai/whisper">Whisper</a> as the content features
+                                (which is 1024d). During training stage, we use a 6-layer Transformer to train the
+                                mapping
+                                from
+                                whisper
+                                features to 40d MCEP features.
+                            </p>
                         </td>
                     </tr>
                     <tr>
@@ -524,8 +646,38 @@
                     </tr>
                     <tr>
                         <td>
+                            <b>Target Singer Samples</b> (Opencpop):
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="12">
+                                <tr>
+                                    <td>
+                                        <audio controls src="./data/Opencpop/2001000021.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/Opencpop/2032001221.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/Opencpop/2080002938.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Conversion Samples</b> (Convert different singers of M4Singer to Opencpop):
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <table width="100%" border="1" cellspacing="0" cellpadding="12"
-                                style="border-color: rgb(250, 250, 250)">
+                                style="border-color: rgb(250, 250, 250);">
                                 <tr>
                                     <td align="center">
                                         <b>Source</b>
@@ -538,6 +690,40 @@
                                     </td>
                                     <td align="center">
                                         <b>Converted Result</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Soprano-2
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_pred.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        Soprano-3
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_world.wav">
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_pred.wav">
+                                        </audio>
                                     </td>
                                 </tr>
                                 <tr>
@@ -605,40 +791,6 @@
                                     </td>
                                     <td>
                                         <audio controls src="./data/WORLD/Tenor-7_一生守候_0000_pred.wav">
-                                        </audio>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        Soprano-2
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000.wav">
-                                        </audio>
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_world.wav">
-                                        </audio>
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-2_可惜不是你_0000_pred.wav">
-                                        </audio>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        Soprano-3
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000.wav">
-                                        </audio>
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_world.wav">
-                                        </audio>
-                                    </td>
-                                    <td>
-                                        <audio controls src="./data/WORLD/Soprano-3_一抹夕阳_0000_pred.wav">
                                         </audio>
                                     </td>
                                 </tr>
