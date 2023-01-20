@@ -27,105 +27,125 @@
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\Large{
-  \begin{tabu}{ c l r }
-   \multirow{4}{1in}{\includegraphics[width=0.95in]{img-me1.jpg}} & \scshape{张雪遥} &  \\
-    & \email{zhangxueyao19s@ict.ac.cn} & \phone{(+86) 152-0390-0168} \\
-    % & \phone{(+86) 152-0390-0168} &  \\
-    & \faWechat{ xueyao\_98} & \github[github.com/RMSnow]{https://github.com/RMSnow} \\
-    % & \github[github.com/RMSnow]{https://github.com/RMSnow} &
-    & \faHome{\href{https://www.zhangxueyao.com}{~~zhangxueyao.com}}
-    & \faMapMarker \small{北京市海淀区中关村街道科学院南路6号} 
-  \end{tabu}
-}
+% \Large{
+%   \begin{tabu}{ c l l }
+%     & \scshape{Xueyao Zhang（张雪遥）} &  \\
+%     & \email{xueyao\_98@foxmail.com} & \github[~~github.com/RMSnow]{https://github.com/RMSnow} \\
+%     & \faHome{\href{https://www.zhangxueyao.com}{~~zhangxueyao.com}}
+%     & \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~~Google Scholar}} 
+%   \end{tabu}
+% }
+
+\name{张雪遥}
+
+\basicInfo{
+  % \faEnvelope{~xueyao\_98@foxmail.com} \textperiodcentered\
+  \faEnvelope{~xueyaozhang@link.cuhk.edu.cn} \textperiodcentered\ 
+  \faDesktop{\href{https://www.zhangxueyao.com}{~zhangxueyao.com}} \textperiodcentered\ 
+  \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~Google Scholar}} }
+
 
 \section{教育背景}
-\datedsubsection{\textbf{中国科学院计算技术研究所}，计算机应用技术，学术型硕士\textit{（保研）}}{2019.09 -- 2022.06}
-{\small 前瞻实验室，研究方向：虚假新闻检测、事实核查，导师：\href{http://www.ict.cas.cn/sourcedb_2018_ict_cas/cn/jssrck/201011/t20101123_3028158.html}{曹娟}研究员；GPA：3.79 / 4.00.}
-
-\datedsubsection{\textbf{武汉大学}，软件工程，学士}{2015.09 -- 2019.06}
-{\small GPA：3.84 / 4.00，专业排名：4 / 246，英语六级：522.}
-
-
-\section{研究经历}
-\textbf{\large \framebox[1.2\width]{音乐生成}}
-\datedsubsection{\textit{\textbf{Structure-Enhanced Pop Music Generation via Harmony-Aware Learning}}}{2021.07 -- 至今}
-{\small \role{\textbf{Xueyao Zhang}, Jinchao Zhang, Yao Qiu, Li Wang, Jie Zhou}{正在审稿中；第一作者}
+\datedsubsection{\textbf{香港中文大学（深圳）- 数据科学学院}}{2022年9月 - }
+{
+  \small 
+\begin{itemize}
+  \item 数据科学专业博士生，导师：\href{https://scholar.google.com/citations?user=K6zhweAAAAAJ&hl=en}{武执正}教授 
+  \item 研究领域：智能化音乐创作，尤其专注于歌声转换（Singing Voice Conversion）
+  % \item 导师：\href{https://scholar.google.com/citations?user=K6zhweAAAAAJ&hl=en}{武执正}教授 
+\end{itemize}
 }
-\small
+
+\datedsubsection{\textbf{中国科学院计算技术研究所}}{2019年9月 - 2022年6月}
+{
+  \small 
 \begin{itemize}
-  \item \textit{研究任务} \quad 符号化的流行音乐生成（Symbolic Pop Music Generation），且针对的是端对端地生成具有旋律（Melody）与伴奏（Accompaniment）的、具备完整的歌曲结构（Structure）的流行音乐.
-  \item \textit{论文亮点} \quad 提出利用和声感知（Harmony-aware）的学习，来生成结构性更强的流行音乐。具体地：通过学习和弦（Chord）来增强织体结构（Texture），通过学习和声进行（Chord Progression）来增强曲式结构（Form）.
-  \item \textit{论文贡献} \quad （1）以和声为桥梁，进行了织体结构与曲式结构的联合学习；（2）从和声的角度，设计了两种评价音乐结构性的客观性指标；（3）论文所提出模型生成的音乐，在主观性评测和客观性评测中都显著优于现有的生成模型。论文相关资源：\href{https://arxiv.org/pdf/2109.06441.pdf}{[Preprint]} \href{https://drive.google.com/drive/folders/1NUJIocNp_RnOeKBj3h_G6_eZcWl8Duqn?usp=sharing}{[Demo]}
+  \item 计算机应用技术专业硕士（保研），导师：\href{https://scholar.google.com/citations?user=fSBdNg0AAAAJ&hl=zh-CN}{曹娟}研究员
+  \item 研究领域：虚假新闻检测、事实核查
+  \item GPA：3.79 / 4.00, 数学类课程：91 / 100
 \end{itemize}
-
-\textbf{\\ \large \framebox[1.2\width]{虚假新闻检测}}
-
-\datedsubsection{\textit{\textbf{Mining Dual Emotion for Fake News Detection} (Long Paper)}}{2020.04 -- 2021.04}
-{\small \role{\textbf{Xueyao Zhang}, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, Kai Shu.}{发表于\textit{WWW'2021}；第一作者}
 }
-\small
-\begin{itemize}
-  \item \textit{研究任务} \quad 虚假新闻检测（Fake News Detection）：给定一条社交媒体的新闻（如微博、Tweet），判定其真实性（Fake / Real）.
-  \item \textit{论文亮点} \quad 虚假新闻在写作风格上常常拥有强烈的情感（发布者情感），且常常能够引发公众的特定情绪（社交情感）。本篇论文基于此提出了双重情感特征（Dual Emotion），用来增强现有模型的检测能力.
-  \item \textit{论文贡献} \quad 论文在一个Twitter数据集、两个微博数据集（其中一个为本论文首次公布）上，均证实了双重情感特征的有效性。论文相关资源：\href{https://www.zhangxueyao.com/data/www2021-dual-emotion-paper.pdf}{[PDF]} \href{https://github.com/RMSnow/WWW2021}{[Code]} \href{https://www.zhangxueyao.com/assets/www2021-dual-emotion-slides.pdf}{[Slides]} \href{https://www.zhangxueyao.com/assets/www2021-dual-emotion-video.mp4}{[Video]} \href{https://www.bilibili.com/video/BV13o4y1m7c3}{[Chinese Video]}.
-\end{itemize}
 
-\datedsubsection{\textit{\textbf{Integrating Pattern- and Fact-based Fake News Detection via Model Preference Learning} (Long Paper)}}{2021.02 -- 2021.11}
-{\small \role{Qiang Sheng*, \textbf{Xueyao Zhang}*, Juan Cao, Lei Zhong. (*: Equal Contribution)}{发表于\textit{CIKM'2021}；共同一作}
+\datedsubsection{\textbf{武汉大学 - 计算机学院}}{2015年9月 -  2019年6月}
+{
+  \small 
+\begin{itemize}
+  \item 软件工程专业，GPA：3.83 / 4.00, 专业排名: 4 / 246 (Top 1.6\%)
+  \item 数学类课程: 高等数学（95）, 线性代数（94），离散数学（93）
+\end{itemize}
 }
-\small
-\begin{itemize}
-  \item \textit{研究任务} \quad 虚假新闻检测（Fake News Detection）：给定一条社交媒体的新闻（如微博、Tweet），判定其真实性（Fake / Real）.
-  \item \textit{论文亮点} \quad 基于模式的检测模型，旨在挖掘出虚假新闻“像什么”；基于事实的检测模型，旨在探究出虚假新闻“为什么”假；这两种解决思路的不同，导致了二者在建模过程中所偏好的信息有所差异。本文整合了这两种检测模型，提出基于GNN的偏好学习框架，来剥离出这二者各自偏好的信息.
-  \item \textit{论文贡献} \quad 论文所提出的模型，能够有效把基于模式和基于事实的两类模型整合起来，显著提升了现有检测模型的检测性能.
-\end{itemize}
 
-\datedsubsection{\textit{\textbf{Article Reranking by Memory-enhanced Key Sentence Matching for Detecting Previously Fact-checked Claims} （Long Paper）}}{2020.09 -- 2021.08}
-{\small \role{Qiang Sheng, Juan Cao, \textbf{Xueyao Zhang}, Xirong Li, Lei Zhong.}{发表于\textit{ACL'2021}；学生第二作者}}
-\small
-\begin{itemize}
-  \item \textit{研究任务} \quad 检测“旧谣新传”（Detecting Previously Fact-checked Claims）：给定一条谣言，在已有的辟谣库中，检索其相关的辟谣文档。该任务可以为谣言的判别提供“事实性证据”.
-  % \item \textit{技术路线} \quad 现有的检索流程常分为两个阶段：（1）基于BM25等传统检索模型的粗排序；（2）基于BERT等深度模型的重排序。本文着力于设计第二阶段的重排序模型.
-  \item \textit{论文亮点} \quad （1）基于挑选关键句来进行相关文档检索，因此模型具有句子级别的可解释性；（2）除了利用词汇重合信息、语义相似信息进行检索之外，本文还借助Memory机制，捕捉辟谣文章中常见的写作模式特征；（3）构建了该研究任务的第一个中文数据集.
-  \item \textit{个人贡献} \quad 进行Coding，完成大部分实验。论文相关资源：\href{https://aclanthology.org/2021.acl-long.425.pdf}{[PDF]} \href{https://github.com/ICTMCG/MTM}{[Code]} \href{https://www.zhangxueyao.com/data/acl2021-MTM-poster.pdf}{[Poster]} \href{https://zhuanlan.zhihu.com/p/393615707}{[Chinese Blog]}.
-\end{itemize}
+
+\section{发表论文}
+
+\begin{enumerate}\itemsep 0.5em
+  \item \textbf{Xueyao Zhang}, Jinchao Zhang, Yao Qiu, Li Wang, Jie Zhou. \href{https://dl.acm.org/doi/10.1145/3503161.3548084}{[PDF]} \href{https://github.com/RMSnow/HAT}{[Code]} \href{https://www.zhangxueyao.com/data/HAT/slides.pdf}{[Slides]} \href{https://www.zhangxueyao.com/data/HAT/demo.html}{[Demo]}\\Structure-Enhanced Pop Music Generation via Harmony-Aware Learning. \textit{Proceedings of the 30th ACM International Conference on Multimedia (ACM MM 2022).}
+  \item \textbf{Xueyao Zhang}, Juan Cao, Xirong Li, Qiang Sheng, Lei Zhong, Kai Shu. \href{https://dl.acm.org/doi/pdf/10.1145/3442381.3450004}{[PDF]} \href{https://github.com/RMSnow/WWW2021}{[Code]} \href{https://www.zhangxueyao.com/assets/www2021-dual-emotion-slides.pdf}{[Slides]} \href{https://www.bilibili.com/video/BV13o4y1m7c3}{[Video]}\\ Mining Dual Emotion for Fake News Detection. \textit{Proceedings of the 30th Web Conference (WWW 2021).}
+  \item Qiang Sheng*, \textbf{Xueyao Zhang}*, Juan Cao, Lei Zhong.  (*: Equal Contribution) \href{https://dl.acm.org/doi/10.1145/3459637.3482440}{[PDF]} \href{https://github.com/ICTMCG/Pref-FEND}{[Code]} \href{https://zhuanlan.zhihu.com/p/414464291}{[Blog]}\\Integrating Pattern- and Fact-based Fake News Detection via Model Preference Learning. \textit{Proceedings of the 30th ACM International Conference on Information and Knowledge Management (CIKM 2021).}
+  \item Qiang Sheng, Juan Cao, \textbf{Xueyao Zhang}, Xirong Li, Lei Zhong. \href{https://aclanthology.org/2021.acl-long.425.pdf}{[PDF]} \href{https://github.com/ICTMCG/MTM}{[Code]} \href{https://zhuanlan.zhihu.com/p/393615707}{[Blog]}\\Article Reranking by Memory-enhanced Key Sentence Matching for Detecting Previously Fact-checked Claims. \textit{Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021) }
+  \item Qiang Sheng, Juan Cao, \textbf{Xueyao Zhang}, Rundong Li, Danding Wang, Yongchun Zhu. \href{https://aclanthology.org/2022.acl-long.311.pdf}{[PDF]} \href{https://github.com/ICTMCG/News-Environment-Perception}{[Code]} \href{https://mp.weixin.qq.com/s/aTFeuCYIpSoazeRi52jqew}{[Blog]}\\Zoom Out and Observe: News Environment Perception for Fake News Detection. \textit{Proceedings of the Joint Conference of the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022).}
+\end{enumerate}
+
+\section{发表专利}
+\small{
+  \begin{enumerate}\itemsep 0.5em
+    \item CN113239685A.曹娟;\textbf{张雪遥};盛强;谢添;李锦涛.一种基于双重情感的舆情检测方法及系统
+    \item CN113536760A . 曹娟;盛强;\textbf{张雪遥};钟雷;谢添 . 引述句和辟谣模式句引导的“谣言-辟谣文章”匹配方法及系统
+    \item CN113849599A . 曹娟;盛强;\textbf{张雪遥};钟雷;谢添 . 基于模式信息和事实信息的联合虚假新闻检测方法
+    \item CN202210214207.3（申请号）. 曹娟;盛强;\textbf{张雪遥} . 基于新闻环境信息建模的虚假新闻检测方法
+  \end{enumerate}
+}
+
 
 \section{实习经历}
-\datedsubsection{\textbf{腾讯 - WXG（微信事业群） - 模式识别中心}}{2021.04 -- 至今}
-{\small \role{部门总监：周杰；直属领导：张金超.}{\textbf{音乐生成算法实习生}}
+\datedsubsection{\faWechat{} \textbf{腾讯 - 微信 - 模式识别中心}}{2021年4月 - 2022年2月}
+{\small \role{音乐生成算法实习生}{}
 }
-\small
+% \small
 \begin{itemize}
-  % \item \textit{业务场景} \quad 为微信视频号中用户上传的视频自动配乐.
-  \item 负责音乐生成算法的研发；提供音乐背景、乐理知识等支持，专业化地评估人工智能音乐.
-  \item 举办了一次内部的音乐培训讲座：\href{https://www.zhangxueyao.com/data/wcpr-pop-music.pdf}{\underline{一首流行歌是如何创作？}}
+  \item 研究课题：符号化音乐生成；为团队提供音乐背景
+  乐理知识等支持。
+  \item 2021年5月，举办一次内部的音乐培训讲座：\href{https://www.zhangxueyao.com/data/wcpr-pop-music.pdf}{\underline{一首流行歌是如何创作的}}。
+  \item 2022年1月，参与发布2022年微信公开课主题曲：\href{https://y.qq.com/n/ryqq/songDetail/000xeNJ53orPG2}{\underline{《入微》}}。
 \end{itemize}
 
-\section{音乐能力}
-\small
+\section{服务工作}
+\datedsubsection{\textbf{学术审稿}}{}
 \begin{itemize}
-  \item 掌握基础的乐理知识，熟悉常见的音乐风格.
-  \item 熟悉流行音乐的键盘演奏，了解吉他演奏.
-  \item 爱好流行演唱，曾获中国科学院大学校园歌手大赛季军；拥有合唱团演唱、领唱经历.
-  \item 对计算音乐学、音乐生成、音乐理解等领域具有浓厚的兴趣. 
+  \item 会议：ICASSP 2023, ACL Rolling Review, ACM MM 2022, EMNLP 2021, ACM CSCW 2021
+  \item 期刊: Information Processing and Management (IP\&M), EURASIP Journal on Audio, Speech, and Music Processing, 中文信息学报
 \end{itemize}
-
-\section{编程技能}
-\small
+\datedsubsection{\textbf{助教}}{}
 \begin{itemize}
-  \item 编程语言：熟练使用Python，了解Java、C++.
-  \item 深度学习框架：PyTorch、Keras.
+  \item 2017年秋季：面向对象的编程（Java），武汉大学
+  \item 2022年秋季：CSC3100 数据结构，香港中文大学（深圳）
+  \item 2023年春季：CSC3160/MDS6002 \href{https://drwuz.com/CSC3160/index.html}{语音与语言处理基础}，香港中文大学（深圳）
 \end{itemize}
 
 \section{获奖情况}
+\begin{enumerate}
+  \item 研究生国家奖学金 (Top 0.2\%, 2021)
+  \item 本科生国家奖学金 (Top 0.2\%, 2016)
+  \item 中国科学院大学校园歌手大赛季军 (Top 3, 2020）
+  \item 中国科学院大学优秀毕业生 (Top 5\%, 2022)
+  \item 北京市优秀毕业生 (Top 5\%, 2022)
+  \item 武汉大学优秀毕业论文 (Top 5\%, 2019)
+  \item 全国高中数学联赛一等奖 (河南省Top 50, 2014)
+  \item 中国科学院大学三好学生 (2020; 2021; 2022)
+  \item 武汉大学三好学生、优秀班干部 (2016; 2017; 2018)
+\end{enumerate}
+
+\section{音乐能力}
 \begin{itemize}
-  \item 中国科学院大学校园歌手大赛季军（2020）
-  \item 中国科学院大学计算机学院三好学生（2019；2020）
-  \item 武汉大学优秀学士学位论文（2019）
-  \item 武汉大学三好学生、优秀团员、优秀学生干部（2016；2017；2018）
-  \item 本科生国家奖学金（2016）
-  \item 全国高中生数学联赛一等奖（2014）
+  \item 掌握基础的乐理知识，熟悉常见的音乐风格
+  \item 熟悉流行音乐的键盘演奏，了解吉他演奏
+  \item 爱好流行演唱，曾获国科大校园歌手大赛季军；拥有合唱团演唱、领唱经历，了解基础的美声知识
 \end{itemize}
+
+% \section{编程技能}
+% \begin{itemize}
+%   \item 编程语言：熟练使用Python，了解Java、C++
+%   \item 深度学习框架：熟练使用PyTorch
+% \end{itemize}
 
 \end{document}
