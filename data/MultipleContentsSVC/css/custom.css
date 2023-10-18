@@ -13,6 +13,12 @@ body {
   color: black;
 }
 
+.bluehref {
+  text-decoration: none;
+  color: #0d6efd;
+  font-size: 1rem;
+}
+
 .cite {
   color: rgb(100, 100, 100);
   text-decoration: none;
