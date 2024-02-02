@@ -1,0 +1,123 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{graphicx}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{progressbar}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+% \usepackage{NotoSansSC_external}
+% \usepackage{NotoSerifCJKsc_external}
+% \usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+\usepackage{fontspec}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=cyan,
+}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+% \Large{
+%   \begin{tabu}{ c l l }
+%     & \scshape{Xueyao Zhang（张雪遥）} &  \\
+%     & \email{xueyao\_98@foxmail.com} & \github[~~github.com/RMSnow]{https://github.com/RMSnow} \\
+%     & \faHome{\href{https://www.zhangxueyao.com}{~~zhangxueyao.com}}
+%     & \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~~Google Scholar}} 
+%   \end{tabu}
+% }
+
+\name{Xueyao Zhang 张雪遥}
+
+\basicInfo{
+  % \faEnvelope{~xueyao\_98@foxmail.com} \textperiodcentered\
+  \faEnvelope{~xueyaozhang@link.cuhk.edu.cn} \textperiodcentered\
+  \faDesktop{\href{https://www.zhangxueyao.com}{~zhangxueyao.com}} \textperiodcentered\
+  \faGraduationCap {\href{https://scholar.google.com/citations?user=lf1udBcAAAAJ&hl=en}{~Google Scholar}} }
+
+\section{Publications}
+
+\begin{enumerate}\itemsep 0.5em
+  \item \textbf{Xueyao Zhang}, et al. Structure-Enhanced Pop Music Generation via Harmony-Aware Learning. \textit{Proceedings of the 30th ACM International Conference on Multimedia (ACM MM 2022).} \href{https://dl.acm.org/doi/10.1145/3503161.3548084}{[Paper]} \href{https://github.com/RMSnow/HAT}{[Code]} \href{https://www.zhangxueyao.com/data/HAT/demo.html}{[Demo]}
+  \item \textbf{Xueyao Zhang}*, Liumeng Xue*, Yuancheng Wang*, Yicheng Gu*, et al. Amphion: An Open-Source Audio, Music and Speech Generation Toolkit. \href{https://arxiv.org/pdf/2312.09911.pdf}{[Technical Report]} \href{https://github.com/open-mmlab/Amphion}{[GitHub]} \href{https://huggingface.co/amphion}{[HuggingFace]}
+  \item \textbf{Xueyao Zhang}, et al. Leveraging Content-based Features from Multiple Acoustic Models for Singing Voice Conversion. \textit{Audio Generation Workshop at NeuIPS 2023.} \href{https://arxiv.org/pdf/2310.11160.pdf}{[Paper]} \href{https://github.com/open-mmlab/Amphion/tree/main/egs/svc/MultipleContentsSVC}{[Code]} \href{https://www.zhangxueyao.com/data/MultipleContentsSVC/index.html}{[Demo]}
+\end{enumerate}
+*: Equal Contribution.
+
+\section{Internships}
+\datedsubsection{\faWechat{} \textbf{WeChat, Tencent}}{Apr. 2021 -- Feb. 2022,\quad June 2023 --}
+{\small \role{Music Generation Research Intern, Beijing, China
+  }{}
+}
+% \small
+\begin{itemize}
+  \item My research topic is \textit{Music Generation}. Besides, I provide the musical knowledge support for our
+        team.
+  \item In May 2021, I gave a talk on music,
+        \href{https://www.zhangxueyao.com/data/wcpr-pop-music.pdf}{\underline{How to
+            create a pop song? \textit{（一首流行歌是如何创作的）}}}
+  \item In Jan 2022, I participated to release the theme song of WeChat Open Class 2022
+        as a co-producer, \href{https://y.qq.com/n/ryqq/songDetail/000xeNJ53orPG2}{Ru
+          Wei \textit{（入微）}}, which was composed by computer and sung by humans.
+\end{itemize}
+
+\section{Education}
+% \datedsubsection{\textbf{The Chinese University of Hong Kong, Shenzhen}}{Sept. 2022 -- }
+{
+  \small
+  \textbf{The Chinese University of Hong Kong, Shenzhen} (Sept. 2022 -- Jun. 2026)
+  \begin{itemize}
+    \item Ph.D. student, Areas of Study: Music Generation
+    \item Advisor: Professor
+          \href{https://scholar.google.com/citations?user=K6zhweAAAAAJ&hl=en}{Zhizheng
+            Wu}
+  \end{itemize}
+  \textbf{University of Chinese Academy of Sciences} (Sept. 2019 -- Jun. 2022)
+  \small
+  \begin{itemize}
+    \item Master, Areas of Study: Computational Social Science
+    \item Advisor: Professor
+          \href{https://scholar.google.com/citations?user=fSBdNg0AAAAJ&hl=zh-CN}{Juan
+            Cao}
+  \end{itemize}
+  \textbf{Wuhan University} (Sept. 2015 -- Jun. 2019)
+  \begin{itemize}
+    \item B.Eng. in Software Engineering
+    \item GPA: 3.83 / 4.00, Ranking: 4 / 246 (Top 1.6\%)
+    \item Math-related courses: Advanced Mathematics (95), Linear Algebra (94), Discrete
+          Mathematics (93)
+  \end{itemize}
+}
+
+\section{Honors and Awards}
+\begin{enumerate}
+  % \item Tencent Rhino-Bird Talent Program \textit{腾讯犀牛鸟精英人才计划} (Top 50+ of China)
+  \item Third place at Campus Singer Competition, University of Chinese Academy of
+        Sciences \textit{中国科学院大学校园歌手大赛季军} (Top 3, 2020）
+  \item Outstanding Graduate, University of Chinese Academy of Sciences
+        \textit{中国科学院大学优秀毕业生} (Top 5\%, 2022)
+  \item Excellent Bachelor Thesis, Wuhan University \textit{武汉大学优秀毕业论文} (Top 5\%, 2019)
+  \item Merit Student, University of Chinese Academy of Sciences \textit{中国科学院大学三好学生}
+        (2020; 2021; 2022)
+  \item Merit Student and Outstanding Student Leaders, Wuhan University
+        \textit{武汉大学三好学生、优秀班干部} (2016; 2017; 2018)
+\end{enumerate}
+
+\section{Musical Abilities}
+\begin{itemize}
+  \item Familiar with the basic music theory.
+  \item Familiar with the common musical genres.
+  \item Proficient in playing pop keyboard.
+  \item Proficient in pop singing and familiar with Bel canto.
+\end{itemize}
+
+\end{document}
